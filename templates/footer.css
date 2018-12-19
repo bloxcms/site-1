@@ -1,0 +1,10 @@
+.footer footer {position:relative}
+.footer {color: #aaa; border-top: 3px solid rgba(0,0,0,.1)}
+.footer h4 {margin-bottom: 15px}
+.footer, .footer p, .footer h4, .footer li, .footer a, .footer a:hover, .footer a:focus {color:rgba(255,255,255,.8)}
+.footer a, .footer a:hover, .footer a:focus {color:#ddd}
+.footer .copyright {background: rgba(0,0,0,0.3); padding: 7px 0 15px; margin-top:15px}
+/* Custom */
+.footer footer {background:#9d2d0a; padding-top:25px}
+.footer {border-top:none; margin-top:-1px}
+

@@ -1,0 +1,40 @@
+<?php
+/**
+ * @todo Просто добавть в список pdf, ppt 
+ */
+$titles = [
+    1 => 'Файл xls, xlsx, doc, docx, pdf',
+    2 => 'Высота окна отображения',
+    3 => 'Закодированный URL страницы', #bind
+    4 => 'Заголовок',
+    5 => 'Отключить в мобильных устройствах',
+];
+
+$types = [
+    1 => 'file allowedFormats(xls,xlsx,doc,docx,pdf)',
+    2 => 'smallint(5) unsigned not null default 800',
+    3 => 'varchar(333)', #bind
+    4 => 'varchar(128)',
+    5 => 'tinyint(1) unsigned not null default 1',
+];
+
+$fields = [
+    'hidden' => [3], #bind
+];
+
+$params = [
+    'multi-record' => true,
+    'no-new-rec-button' => true, #bind
+	'description' => 'Отображение документов MS Office и Adobe на сайте с помощью сервиса Google Docs',
+];
+
+# Привязка к псевдостранице #bind
+$keys = 'INDEX(dat3)'; #bind
+Tdd::bind(
+    [
+        'block-id' => $blockInfo['id'], 
+        'field' => 3, 
+        'value' => Url::encode(Router::getPhref(Blox::getPageHref()))
+    ],
+    $keys, $defaults
+);

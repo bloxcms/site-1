@@ -1,0 +1,151 @@
+<?php
+
+$defaultThumbwidth  = 360;
+$defaultThumbheight = 360;
+
+### Динамичное управление настройками миниатюры с помощью экстаданных #####################################
+
+$xDat = Dat::get($blockInfo, [], 'x');       
+$thumbwidth  = $xDat[7] ?: $defaultThumbwidth;
+$thumbheight = $xDat[8] ?: $defaultThumbheight;
+$mode   = ($xDat[9]== 'ВПИСАТЬ') ? 'fit' : 'crop';
+
+if ('ВВЕРХ' == $xDat[10])
+    $thumbvalign = 'top';
+elseif ('ВНИЗ' == $xDat[10])
+    $thumbvalign = 'bottom';
+else
+    $thumbvalign = 'center';
+
+########################## Данные ##################################
+
+require_once Blox::info('templates','dir')."/media/media.inc";    
+require_once Blox::info('templates','dir')."/media/media.conf";    
+
+$titles = [  
+	1 => 'Название категории <br><span class="small">также используется в заголовке страницы</span>',
+	4 => 'Альтернативный заголовок страницы',
+	2 => 'ID родительской категории',
+	3 => 'Фото для категории <br><span class="small">(рекомендуемый размер 360x360 px)</span>',
+	6 => 'При щелчке по категории<br>перенаправлять сразу<br>на первую подкатегорию<div class="small">(только в режиме посетителя)</div>', 
+	7 => 'На эту категорию будет происходить перенаправление по умолчанию,<br>при первом входе в каталог фото-видео', 
+	8 => 'Порядок отображения галереи<br>(ГАЛЕРЕЯ) и доп.текста (ТЕКСТ)', //Метод совместного отображения категорий и текста
+	9 => 'Дополнительный текст',
+    /*
+	13 => 'Минимальная высота, отведенная под подпись (px)<div class="small">По умолчанмю 60</div>',
+	14 => 'Размер шрифта подписи (px)<div class="small">По умолчанмю 16</div>',
+	15 => 'Шрифт жирный',
+    */
+];
+/*
+$captions = [    
+    13  => 'Парамеры подписи под фотоиконками галереи дочернего уровня',
+];
+*/
+$types = [
+	1 => 'varchar(255)',
+	2 => 'mediumint(8) unsigned not null default 0', // ID родительской категории
+	3 => 'file thumbnail('.$mode.','.$thumbwidth.','.$thumbheight.','.$thumbvalign.') quality(90) allowedFormats(gif,jpg,jpeg,png,svg) destination(datafiles/media/catalog) renameFileByField(1,300)',   
+	4 => 'varchar(255)',
+	6 => 'tinyint(1) unsigned not null default 0',
+	7 => 'tinyint(1) unsigned not null default 0',
+	8 => "enum('ГАЛЕРЕЯ','ГАЛЕРЕЯ-ТЕКСТ','ТЕКСТ-ГАЛЕРЕЯ', 'ТЕКСТ') default 'ГАЛЕРЕЯ'", 
+	9 => 'text',
+    /*
+	13 => 'smallint(3) unsigned',
+	14 => 'smallint(3) unsigned',
+	15 => 'tinyint(1) unsigned not null default 0',
+    */
+];
+
+
+$mstyles = [
+    1 => 'width:300px',
+];
+
+$params = [
+    'multi-record' => true,
+    'description' => 'Вывод списка категорий фото-видео',
+];
+
+############################## Управление параметрами ###############################
+
+#Не выводим галочку перенаправления на категорию, если нет подкатегорий
+if (isset($_GET['edit']) && empty($_GET['edit']) && $_GET['rec'] != 'new') {  #Только при входе в режим редактирования записи
+    if (!empty($_GET['rec'])) {   
+        # Однозаписное редактирование
+        $sql = "SELECT * FROM `".Blox::info('db','prefix')."$media/nav` WHERE dat2=? AND `block-id`=? ORDER BY sort";    
+        $rows = Sql::select($sql, [$_GET['rec'], $GLOBALS['media/nav']['block']]);
+        if (!$rows) 
+            $fields['hidden'] = [6];
+    } else
+        # Многозаписное редактирование
+        $fields['hidden'] = [6, 7, 8, 9];
+}
+
+if (isset($_GET['edit']) && empty($_GET['edit']) && $_GET['rec']=='new') { #Только при входе в режим создания новой записи
+    $defaults[2] = $_GET['parent'] ?: 0;
+    $fields['hidden'] = [6, 9];
+}
+
+if (!Blox::info('user','userIsAdmin')) 
+    $fields['hidden'][] = 2;
+
+
+############################## Экстраданные ###############################
+
+$xtitles = [    
+	1 =>  'Заголовок дерева категорий',
+	2 =>  'Сортировать дерево категорий',
+	3 =>  'Расстояние в px при прокрутке до которого<br>начинается фиксация дерева <br><span class="small">Если указан ноль, то дерево не фиксируется</span>',
+	4 =>  'Заголовок вводной страницы, <br>при первом открытии каталога фото-видео',
+	5 =>  'Порядок отображения галереи категорий<br>(ГАЛЕРЕЯ) и доп.текста (ТЕКСТ) на вводной странице, <br>при первом открытии каталога фото-видео',
+	6 =>  'Дополнительный текст, <br>при первом открытии каталога фото-видео', 
+    7 => 'Ширина фото миниатюры',
+    8 => 'Высота фото миниатюры',
+    9 => 'Как поместить фото в кадре миниатюры',
+    10=> 'Куда поместить фото в кадре миниатюры',    
+    11=> 'для смартфонов (xs)',
+    12=> 'для планшетов (sm)',
+    13=> 'для ноутбуков (md)',
+    14=> 'для десктопов (lg)',
+    /*
+	15 => 'Высота, отведенная под подпись (px)<div class="small">По умолчанмю 60</div>',
+	16 => 'Размер шрифта подписи (px)<div class="small">По умолчанмю 16</div>',
+	17 => 'Шрифт жирный',
+    */
+        
+];
+
+$xcaptions = [    
+    7  => 'Параметры фото для миниатюр',
+    11 => 'Ширина колонки для миниатюр (целое число от 1 до 12)<br><span class="small">12 — на всю ширину, null — не задано (берется значение более мелкого устройства)</span>',
+    15 => ' ',//Парамеры подписи под фотоиконками галереи самого верхнего уровня
+];
+
+
+$xtypes = [
+	1 => 'varchar(100)',
+	2 => 'tinyint(1) unsigned not null default 0',
+	3 => 'mediumint(4)',
+	4 => 'varchar(255)',
+	5 => "enum('ГАЛЕРЕЯ','ГАЛЕРЕЯ-ТЕКСТ','ТЕКСТ-ГАЛЕРЕЯ', 'ТЕКСТ') default 'ГАЛЕРЕЯ'", 
+	6 => "text",
+    7 => 'smallint(4) unsigned default '.$defaultThumbwidth,
+    8 => 'smallint(4) unsigned default '.$defaultThumbheight,
+    9 => "enum('ВПИСАТЬ','ОБРЕЗАТЬ') default 'ВПИСАТЬ'",
+    10=> "enum('ВВЕРХ','ЦЕНТР','ВНИЗ') default 'ВНИЗ'",    
+    11=> 'tinyint(2) default 6',
+    12=> 'tinyint(2) default 4',
+    13=> 'tinyint(2) default 3',
+    14=> 'tinyint(2) default null',
+    /*
+	15 => 'smallint(3) unsigned',
+	16 => 'smallint(3) unsigned',
+	17 => 'tinyint(1) unsigned not null default 0',
+    */
+];
+
+$xfields = [
+    'nullable' => [11,12,13,14],
+];

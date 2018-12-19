@@ -1,0 +1,33 @@
+<?php
+
+$titles = [
+    1 => 'Видеофайл .mp4',
+    2 => 'Видеофайл .ogg',
+    3 => 'Видеофайл .ogv',
+    4 => 'Видеофайл .webm',
+    5 => 'Картинка-заставка',
+    6 => 'Свойства второго наложенного слоя',
+    7 => 'HTML-код в третьем наложенном слое',
+    
+];
+
+$notes = [
+    2 => 'Может понадобиться для некоторых браузеров. Для конвертации можно воспользоваться: <a href="http://www.online-convert.com/ru" target="_blank">Онлайн-конвертером</a>',
+    3 => 'Может понадобиться для некоторых браузеров.',
+    4 => 'Может понадобиться для некоторых браузеров.',
+    6 => 'Пример: background:#225470; opacity:0.8',
+    
+];
+    
+$types = [
+    1 => 'file allowedFormats(mp4)',
+    2 => 'file allowedFormats(ogg)',
+    3 => 'file allowedFormats(ogv)',
+    4 => 'file allowedFormats(webm)',
+    5 => 'file allowedFormats(gif,jpg,png)',  
+    6 => 'text',
+    7 => 'text',
+];
+
+$params['description'] = 'Полноэкранное видео в начальной секции сайта';
+$fields['no-text-editor'] = [6, 7];

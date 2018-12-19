@@ -1,0 +1,10 @@
+.paragraphs .headline {margin-top:35px; margin-bottom:20px}
+.paragraphs > div:first-child > .headline {margin-top:0}
+.paragraphs img.image {width:100%}
+.paragraphs .floatLeft   {position:relative; margin-bottom: 10px; float: left; margin-right: 20px }
+.paragraphs .floatRight  {position:relative; margin-bottom: 10px; float: right; margin-left: 20px }
+.paragraphs .floatNone   {position:relative; padding-bottom: 10px; margin:0 auto;}
+.paragraphs .photoCaption {margin-top:5px; text-align:center}
+
+.paragraphs .img-responsive {width: 100%} /* Чтобы картинки могли увеличиваться больше своего натурального размера */
+

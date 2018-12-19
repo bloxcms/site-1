@@ -1,0 +1,58 @@
+<?php
+
+
+
+$titles = [
+    1 => 'Фото товара',
+	2 => 'Название товара',
+	3 => 'Название товара в виде картинки',
+    4 => 'Цена',
+	5 => 'Ссылка',
+    6 => 'Общий заголовок',
+    #11 => см. ниже
+];
+
+$types = [
+    1 => 'file maxWidth(500) maxHeight(400) renameFileByField(2,300) stamp(xfiles/stamp.png)',
+	2 => 'varchar(128)',
+	3 => 'file maxWidth(600) maxHeight(300) renameFileByField(2,300)',
+    4 => 'mediumint unsigned',
+	5 => 'varchar(255)',
+    6 => 'varchar(128)',
+];
+
+$tfield = 11;
+$ifield = 12;
+for ($i=1; $i<=6; $i++) {
+	$titles[$tfield] = 'Характеристика';
+    $titles[$ifield] = 'Характеристика в виде картинки';
+    $types[$tfield] = 'varchar(128)';
+    $types[$ifield] = 'file maxWidth(300) maxHeight(200) renameFileByField('.$tfield.',300)';
+    $mstyles[$tfield] = 'width:99px';
+    $tfield += 2;
+    $ifield += 2;
+}
+/*
+$defaults = [
+    2 => 'free mans style 26',
+    11=> 'steel hardtail',
+    13=> '21 speed',
+    15=> '27mm double wall rims',
+    17=> '7 points type 31.8mm',
+    19=> '160mm mechanical disk brake',
+    21=> '5 colors',
+];
+*/
+$fields = [
+    'reconvertUrl'=>[5],
+];
+
+$styles = [
+    4 =>'width:55px',
+];
+
+$params = [
+    'multi-record'=>true,
+    'description' => 'Витрина одного товара',
+];
+

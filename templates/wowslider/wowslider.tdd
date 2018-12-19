@@ -1,0 +1,44 @@
+<?php
+
+$titles = [
+    2 => 'Скрыть',
+    1 => 'Изображение',
+    3 => 'Название изображения (alt)',
+    4 => 'URL целевой страницы',
+    8 => 'Целевую страницу открывать в новом окне',
+    //6 => 'Текст (html-код) поверх баннера',
+    //7 => 'Использовать ссылки в тексте',
+    //9 => 'Данное для привязки',
+];
+
+$types = [
+    1 => 'file thumbnail(crop, 1140, 500) allowedFormats(gif,jpg,jpeg,png) destination(datafiles/wowslider/lg)',
+    2 => 'tinyint(1) unsigned not null default 0',
+    3 => 'varchar(255)',
+    4 => 'varchar(332)',
+    5 => 'file thumbnail(crop, 136, 48)  sourceField(1) allowedFormats(gif,jpg,jpeg,png) destination(datafiles/wowslider/sm)',
+   
+    //5 => "enum('средняя часть','левая часть','правая часть') default 'средняя часть'",
+    //6 => 'text',
+    //7 => 'tinyint(1) unsigned not null default 0',
+    8 => 'tinyint(1) unsigned not null default 0',
+    //9 => 'varchar(333)',
+];
+
+$notes = [
+    1 => 'Размер изображения 1140х500px',
+    4 => 'При щелчке по изображению',
+];
+
+$params = [
+    'multi-record' => true,
+	'no-new-rec-button' => true,
+	'hiding-field' => 2,
+    'edit-button-style' => 'left:-15px',
+];
+
+$fields = [
+    'reconvert-url' => [4],
+    'hidden' => [5],
+];
+

@@ -1,0 +1,26 @@
+<?php
+if (!$_GET['xprefix'])
+{  
+    # Обновить дату статьи
+    if ($_POST['dat'][10])
+        $dat10 = $_POST['dat'][10];
+    else {  
+        $dat10 = Dat::get(
+            ['src-block-id'=>$_GET['block'], 'tpl'=>'blog/goods'], 
+            ['rec'=>$_GET['rec']]
+        )[10];
+    }
+
+    if ($dat10) {
+        $sql = 'SELECT `block-id` FROM '.Blox::getTbl('blog/nav','x').' WHERE dat8=(
+            SELECT dat6 FROM '.Blox::getTbl('blog/goods','x').' WHERE `block-id`=?
+        )';
+        if ($navBlockId = Sql::select($sql, [$_GET['block']])[0]['block-id']) {
+            Dat::update(
+                ['src-block-id'=>$navBlockId, 'tpl'=>'blog/nav'], 
+                [9 => date('Y-m-d')], 
+                ['rec' => $dat10]
+            );
+        }
+    }
+}

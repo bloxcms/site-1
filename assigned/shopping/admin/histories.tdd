@@ -1,0 +1,51 @@
+<?php
+
+# Номер заказа - rec-id 
+
+
+$titles = [
+    1 => 'Номер заказа',
+    2 => 'Дата',
+    3 => 'Статус заказа',
+    #RESERVED 4 => 'Уведомить покупателя',
+    5 => 'Комментарий к статусу', // Отправляется по email?
+];
+
+
+$types = [
+    1 => 'mediumint unsigned not null default 0',
+    2 => 'datetime',
+    3 => 'select template(statuses) edit(1)',
+    #RESERVED 4 => 'tinyint(1) unsigned not null default 0',
+    5 => 'text',
+];
+
+
+$defaults = [
+    2 => date('Y-m-d H:i:s'),
+];
+
+
+$params = [
+	'multi-record' => true,
+    'backward' => true,
+	'description' => '',
+    'no-new-rec-button' => true,
+    'heading' => 'Редактирование статуса',
+    'no-text-editor' => [5],
+];
+
+$fields = [
+    'readonly' => [1],
+    'no-text-editor' => [5],
+];
+    
+
+
+if (Blox::getScriptName() == 'page')
+    Request::add('block='.$blockInfo['id'].'&p[1]='.$_GET['single']);
+elseif (isset($_GET['edit'])) {
+    $defaults[1] = Request::get($blockInfo['id'], 'pick', 1, 'eq'); # Редактирование. Запрос идет уже именно к своему блоку.
+}
+
+

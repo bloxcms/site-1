@@ -1,0 +1,11 @@
+
+BUG-FIX
+In the file conformity.js above the line 72 add this code:
+	currentTallest = Math.ceil(currentTallest) + 1;
+	
+		
+Redo with flex-box 
+http://codepen.io/bootstrapped/details/RrabNe/
+	from https://github.com/codekipple/conformity/issues/6
+	except IE <= 9
+	

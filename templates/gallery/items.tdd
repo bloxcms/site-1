@@ -1,0 +1,93 @@
+<?php
+
+$xDat = Dat::get($blockInfo, [], 'x');       
+
+$titles = [
+	1 => 'Поле привязки',
+    2 => 'Скрыть', 
+    3 => 'Фото большое',
+	4 => 'Фотоминиатюра',
+	5 => 'Подпись',
+    6 => 'URL ссылки',
+];
+
+$types = [
+    1 => 'varchar(332)',
+    2 => 'tinyint(1) unsigned not null default 0',
+    3 => 'file maxwidth(1600) maxheight(1000) destination(datafiles/gallery/items/lg) quality(80) allowedFormats(gif,jpg,jpeg,png,svg) renameFileByField(5,300)'.($xDat[11] ? ' stamp(datafiles/gallery/'.$xDat[11].')' : ''),
+    4 => 'file thumbnail('.($xDat[6]=='ВПИСАТЬ' ? 'fit' : 'crop').','.$xDat[4].','.$xDat[5].',bottom) destination(datafiles/gallery/items/sm) quality(80) allowedFormats(gif,jpg,jpeg,png,svg) renameFileByField(5,300) sourceField(3)',
+    5 => 'varchar(128)',
+    6 => 'varchar(332)',
+];
+
+$fields = [
+    1 => ['hidden'],
+];
+
+$notes = [
+    3   => '<div style="color:red">Не загружайте сюда фото, если вам нужна только фотоминиатюра (поле 4)</div>',
+    4   => 'Если закачивается большое фото (в поле 3), сюда то же фото можно не закачивать.',
+];
+
+$params = [
+    'multi-record' => true,
+    'description' => '',
+    //'no-new-rec-button' => true,
+    'edit-button-style' => true,
+];
+    
+if ($xDat[10])
+    $params['backward'] = true;
+if (!$xDat[11])
+    $fields[3] = ['hidden'];
+#####
+
+$xtitles = [
+    1 => 'Скрыть подпись', //Сделать это через css
+    2 => 'Общий заголовок',
+    3 => 'Колонки — по центру',
+    4 => 'Ширина фотоминиатюры',
+    5 => 'Высота фотоминиатюры',
+    6 => 'Режим кадрирования фотоминиатюры',
+    7 => 'Ширина иконок',
+    8 => 'Блок в шторке',
+    9 => 'Блок во всплывающем окне',
+    10=> 'Обратный порядок',
+    11=> 'Использовать увеличение фото',
+    12=> 'Штамп (водяной знак)',
+];
+
+$xtypes = [
+    1 => 'tinyint(1) unsigned not null default 0',
+    2 => 'varchar(332)',
+    3 => 'tinyint(1) unsigned not null default 0',
+    4 => 'smallint(4) unsigned not null default 300',
+    5 => 'smallint(4) unsigned not null default 300',
+    6 => "enum('ВПИСАТЬ','ОБРЕЗАТЬ') default 'ВПИСАТЬ'",
+    7 => 'varchar(332)',
+    8 => 'block(blinds/)',
+    9 => 'block(modals/)',
+    10=> 'tinyint(1) unsigned not null default 0',
+    11=> 'tinyint(1) unsigned not null default 0',
+    12=> 'file maxwidth(1600) maxheight(1000) destination(datafiles/gallery) allowedFormats(gif,jpg,jpeg,png)',
+    
+];
+
+$xnotes = [
+    1 => 'Подпись будет использоваться только как alt фотоминиатюры',
+    7 => 'Класс колонок в формате Bootstrap 3. Пример: col-xs-6 col-sm-4 col-md-3 col-lg-2',
+    8 => 'Отображается поверх фотоминиатюры при наведении курсором',
+    11=> 'Фото из поля 3 будет появляться во всплывающем окне',
+    12=> 'Ставится на большое фото (из поля 3 основных данных)',
+    
+];
+
+$xdefaults = [
+    4 => 480,
+    5 => 320,
+    7 => 'col-xs-6 col-sm-4 col-md-3 col-lg-2',
+];
+
+$xfields = [
+    'none' => [8, 9],
+];

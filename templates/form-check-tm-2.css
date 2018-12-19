@@ -1,0 +1,16 @@
+.form-check-tm {background:rgba(255,255,255,.7); padding:33px 20px 20px} /*; border-radius:5px; border: solid rgba(255,255,255,.9) 1px; border-color: #fff #999 #999 #fff*/
+.form-check-tm > div:first-child {color:#000; margin-bottom:22px}
+.form-check-tm h3 {margin:0; font-size:28px; font-weight:bold;}
+.form-check-tm h3 > span {color:rgba(255,255,255,.8); background:#035faa; padding:4px 26px; border-radius:50%}
+.form-check-tm h4 {margin-top:10px}
+.form-check-tm p,
+.form-check-tm label {color:rgba(0,0,0,.8)}
+
+
+.form-check-tm {background:rgba(255,255,255,.7)}
+.form-check-tm h3 {background:#f2501e; color:#fff; padding: 11px 0}
+
+
+@media (max-width:555px) {
+.form-check-tm h3 > span {display:block; color:#035faa; background:transparent; pa
+

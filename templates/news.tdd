@@ -1,0 +1,59 @@
+<?php
+
+$titles = [
+	1 => 'Дата<div class="small">Для того, чтобы дата не отображалась,<br>удалите её</div>',
+	2 => 'Заголовок новости',
+	3 => 'Текст новости',
+	4 => 'Фото',
+    5 => 'Минифото',
+    6 => 'На миниатюре сделать рамку',
+];
+
+
+$types = [
+	1 => 'date',
+	2 => 'varchar(332)',
+	3 => 'text',
+	4 => 'file maxWidth(847) maxHeight(640) quality(70) destination("datafiles/news")',
+	5 => 'file thumbnail(crop,288,192) sourceField(4) quality(80) destination("datafiles/news")',
+    6 => 'tinyint(1) unsigned not null default 0',
+];
+
+$defaults[1] = date('Y-m-d');
+
+$params['multi-record'] = true;
+$params['backward'] = true;
+$fields['hidden'] = [5];
+//	$params['part']['limit'] = 5;
+//$params['part']['numbering'] = 'desc';
+//$params['part']['redistribution'] = 2;
+$params['description'] = 'Новости. Шаблон имеет следующие виды: последние новости, одна новость. При делегировании блока с этим шаблоном на другой странице, отображается компактная, усеченная версия. Шаблон не имеет собственного заголовка (чтобы шаблон можно было использовать для различных новостей), поэтому блок с новостями должен быть вложен с шаблон, имеющий заголовок';
+$params['version'] = '1.0.0'; # omega-prom
+
+$xtitles[1] = 'Заголовок всех новостей';
+$xtitles[2] = 'Название рубрики (в режиме "Новость подробно")';//(когда название новости используется как заголовок)
+$xtitles[3] = 'Заголовок при делегировании блока (в уменьшенном виде, например, на главной странице) <div class="small">Если не указано, то заголовок не выводится</div>';
+
+$xtypes[1]  = 'varchar(332)';
+$xtypes[2]  = 'varchar(332)';
+$xtypes[3]  = 'varchar(332)';
+
+$xdefaults[1] = 'Новости';
+$xdefaults[2] = 'Новости';
+$xdefaults[3] = 'Новости';
+    
+if ($_GET['page']==1 || !Blox::getPageHref())
+    $params['part']['limit'] = 1;
+elseif ($blockInfo['delegated-id'])
+    $params['part']['limit'] = 3;
+else {
+    $params['part']['limit'] = 10;
+    $params['part']['numbering'] = 'desc';
+    $params['part']['redistribution'] = 2;
+}
+
+
+    
+# Если дата новости находится в будущем времени, то новость не выводится
+if (!Permission::ask('record', [$blockInfo['id']]))
+    Request::add('block='.$blockInfo['id'].'&pick[1][le]='.$defaults[1]);    

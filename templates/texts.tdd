@@ -1,0 +1,36 @@
+<?php
+/**
+ * @todo Просто добавть в список pdf, ppt 
+ */
+$titles = [
+    1 => 'Текст',
+    2 => 'Закодированный URL страницы', #bind
+];
+
+$types = [
+    1 => 'mediumtext',
+    2 => 'varchar(333)', #bind
+];
+
+$fields = [
+    'hidden' => [2], #bind
+];
+
+$params = [
+    'multi-record' => true,
+    'edit-button-style' => true,
+	'description' => 'Шаблон для текста (гипертекста), привязанный к псевдостранице',
+];
+
+# Привязка к псевдостранице #bind
+$keys = 'INDEX(dat2)'; #bind
+Tdd::bind(
+    [
+        'block-id' => $blockInfo['id'], 
+        'field' => 2, 
+        'value' => Url::encode(Router::getPhref(Blox::getPageHref()))
+    ],
+    $keys, $defaults
+);
+    
+    

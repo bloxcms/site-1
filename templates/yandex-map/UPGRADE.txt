@@ -1,0 +1,9 @@
+
+# 1.0.0 yandex-map	---эскулап.рф
+	Переименовать в БД
+		yandexMap	-->	yandex-map
+		yandexmap	-->	yandex_map
+	Переименовать в assigned
+		yandexMap	-->	yandex-map
+	Закачать файлы и папку yandex-map в templates
+# 0.0.0 yandexMap	---planeta.su

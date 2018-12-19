@@ -1,0 +1,29 @@
+{ 
+	"action" : "templates/ff/form/action-default.php",
+	"method" : "include",
+	"fields" : [
+		{
+			"name" : "name",
+			"label" : "Имя",
+			"validation" : "not-empty"
+		},{
+			"name" : "phone",
+			"label" : "Телефон"
+		},{
+			"name" : "email",
+			"label" : "Email",
+			"validation" : "email not-empty"
+		},{
+			"name" : "message",
+			"type" : "textarea"
+		},{
+			"name" : "form-captcha",
+			"label" : "Введите эти знаки",
+			"type" : "captcha"
+		},{
+			"name" : "form-submit",
+			"type" : "submit",
+			"default" : "Отправить"
+		} 
+	]
+}

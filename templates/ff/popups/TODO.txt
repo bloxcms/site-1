@@ -1,0 +1,67 @@
+
+Закрытие окна перенести в popup
+
+
+
+
+
+
+
+
+data-ff-popups-selector-
+
+
+cms
+        #EXPERIMENTAL
+        if ($GLOBALS['Blox']['tdd'][$tpl]) {
+            return $GLOBALS['Blox']['tdd'][$tpl];
+        }
+
+
+# load js file via ajax require once
+	QQQQ	.getScript()	https://api.jquery.com/jquery.getscript/
+
+	QQQQ	getScript + eval	http://lifeexample.ru/jquery-javascript-primeryi/js-include-i-js-require.html
+	QQQQQ	http://stackoverflow.com/questions/5845230/getscript-how-to-only-call-if-not-already-called
+		var gotContacts = 0;
+		function getContacts(){
+		    if (!gotContacts){
+		    
+		    
+		    
+		    
+		    
+===============================
+# Отстой
+назначение блока 
+		    
+		    
+		    
+		    
+============================
+
+# Doc
+
+Как менять ширину всплывашки
++	в кнопке (передавать)
+--	в содержательном шаблоне (придется вносить элемент .modal-dialog в шаблон, но он принадлежит к  всплывашке!)
+
+"method" : "include"
+В последнем случае нужно указывать не URL, а путь к файлу, обрабатывающему данные.
+Данные же передаются методом post?
+
+
+# Можно было бы назначать блок в контент.
+	Тогда нужно уникалить с помощью номера блока
+	Но тогда примножестве кнопок на одной странице, скопится большой код.
+	Лучше аяксом подтягивать нужный код из готового блока на другой странице
+	
+
+
+# action
+    /**
+     * НА ВХОДЕ
+     *      $_POST - данные с формы и конфигурации (в элементе 'config') массив конфигурации формы, полученный из JSON
+     * НА ВЫХОДЕ
+     *      вывести HTML-код с сообщением о результате выполнения скрипта с помощью echo. 
+     */

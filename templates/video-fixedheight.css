@@ -1,0 +1,12 @@
+.video-fixedheight {height:500px; position:relative}
+.video-fixedheight-wrap {position:absolute; top:0%; left:0%; height:100%; width:100%; overflow:hidden}
+.video-fixedheight-wrap video {position:absolute; width:100%; z-index:0}
+
+.video-fixedheight-overlay {height:100%; position:absolute; top:0; left:0; width:100%; z-index:1}
+.video-fixedheight-content {z-index:2; width:100%; position:relative}
+
+/*.container {max-width:960px; padding-left:1rem; padding-right:1rem; margin:auto; text-align:center}
+@media(max-width:960px) {
+.container {padding-right:3rem; padding-left:3rem}
+}
+*/

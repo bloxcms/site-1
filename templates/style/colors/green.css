@@ -1,0 +1,10 @@
+/*************** Green style ***************/
+/**MAIN COLOR CODE:#00ab66DEEP COLOR CODE:#0c794d*/
+.color-overlay {background:rgba(0, 0, 0, 0.0)}
+.standard-button {background:#00ab66}
+.standard-button2 {background:#00ab66}
+.standard-button2:hover {background:#0c794d}
+.btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {background:#0c794d; border-color:inherit}
+.colored-line,.colored-line-left {background:#00ab66}
+.main-color {color:#00ab66}
+.color-bg {background:#00ab66; color:#FFFFFF}

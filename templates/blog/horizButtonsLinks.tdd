@@ -1,0 +1,51 @@
+<?php
+
+$titles[1] = 'Скрыть';
+$titles[2] = 'Название ссылки';
+$titles[3] = 'URL ссылки';
+$titles[4] = 'Тип(цвет) кнопки';
+
+$types[1] = 'tinyint(1) unsigned not null default 0';
+$types[2] = 'varchar(333)';
+$types[3] = 'varchar(333)';
+$types[4] = "enum('link','default','primary','success','info','warning','danger') not null default 'default'";
+$types[5] = 'smallint(6) unsigned'; // ID статьи
+
+
+$mstyles = [
+    3 => 'width:400px',
+];
+    
+$fields['convert-url'] = [3];
+
+$params['hiding-field'] = 1;
+$params['multi-record'] = true;
+$params['description'] = 'Список ссылок, вводимых вручную';
+
+
+if (isset($_GET['edit'])) // переделать через mainscript
+    $defaults[5] =  Request::get($blockInfo['id'], 'pick', 5, 'eq'); # Редактирование. Запрос идет уже именно к своему блоку.
+else {
+    $complexId = Dat::get($blockInfo, [], 'x')[4];
+    Request::get($GLOBALS['blog/goods'][$complexId]['src-block-id'], 'pick', 10, 'eq'); # Вывод. Определить значение главного запроса.
+}
+Request::add('block='.$blockInfo['id'].'&p[5]='.$defaults[5]);
+
+
+$xtitles[4] = 'Идентификатор комплекта блоков<br>с шаблонами blog/...';
+$xtitles[1] = 'Размер кнопки';
+$xtitles[2] = 'Выровнить по центру';
+$xtitles[3] = 'Заголовок';
+
+$xnotes[4] = '<span style="color:red">Внимание!</span>. Если на сайте используется не один комплект блоков с шаблонами blog/..., то<br>в данные (допданные) каждого блока одного комплекта нужно добавить один и тот же идентификатор';
+
+$xtypes[1] = "enum('xs','sm','','lg','xl') not null default ''";
+$xtypes[2] = 'tinyint(1) unsigned not null default 0';
+$xtypes[3] = 'varchar(255)';
+$xtypes[4] = 'varchar(255)';
+
+$xkeys = 'UNIQUE(`rec-id`, `block-id`)';
+
+if (!Blox::info('user','user-is-admin'))
+    $xfields['hidden'][] = 4;
+

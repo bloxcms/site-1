@@ -1,0 +1,13 @@
+.ff-form {position:relative}
+.ff-form .help-block {line-height: 1.3;}
+.ff-form input[type=checkbox], 
+.ff-form input[type=radio] {height:17px; width:17px; margin-top:2px}
+.ff-form .help-block {margin-bottom:-4px}
+.ff-form [id^="form-captcha-renewal-"]+.help-block {margin-top: 7px}
+.ff-form .form-horizontal .form-group label:not(.ff-form-file) {padding-right:0}
+.ff-form .ff-form-file > input {display:none!important}
+.ff-form .ff-form-div-heading {font-size: 26px}
+.ff-form .ff-form-fields-heading {font-size: 22px}
+.ff-form [data-inputmask] {background-color:#ffb; color:#000}
+.ff-form [data-inputmask].oncomplete {background-color:#cfc}
+.ff-form [data-inputmask].onincomplete {background-color:#ffb}

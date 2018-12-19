@@ -1,0 +1,78 @@
+<?php
+
+$titles = [
+    2 => 'для смартфонов (xs)',
+    3 => 'для планшетов (sm)',
+    4 => 'для ноутбуков (md)',
+    5 => 'для десктопов (lg)',
+    6 => 'для десктопов (lg)<br><span class="small">в режиме редактирования<br>используется если нужно</span>',
+    1 => 'Блок',
+    7 => 'Содержимое колонки выравнить понизу',
+    8 => 'Текст сверху',
+    9 => 'Отступ слева (px)',
+    10=>'Отступ справа (px)',
+    11=>'Отступ сверху (px)',
+];
+
+$types = [
+    1 => 'block(/text,new)',
+    2 => 'tinyint(2) unsigned default null',
+    3 => 'tinyint(2) unsigned default null',
+    4 => 'tinyint(2) unsigned default null',
+    5 => 'tinyint(2) unsigned default null',
+    6 => 'tinyint(2) unsigned default null',
+    7 => 'tinyint(1) unsigned not null default 0',//"enum('','top','middle','bottom') not null default ''",
+    8 => 'varchar(255)',
+    9 => 'tinyint(3) unsigned default null',
+    10=> 'tinyint(3) unsigned default null',
+    11=> 'tinyint(3) unsigned default null',
+];
+
+$fields = [
+    'nullable' => [2,3,4,5,6,9,10],
+];
+
+$params = [
+	'multi-record' => true,
+	'no-edit-buttons' => true,
+    'edit-button-style' => 'left:-14px;',
+	'description' => 'Горизонтальная последовательность блоков',
+];
+
+$captions = [
+    2 => 'Ширина колонки (целое число от 0 до 12)<br><span class="small">12 — на всю ширину, 0 — скрыть колонку,<br>null — не задано (берется значение более мелкого устройства)</span>',
+];
+
+$notes = [
+    9 => 'По умолчанию - 15',
+    10 => 'По умолчанию - 15',
+];
+
+$mstyles = [
+    2 => 'width:48px', 
+    3 => 'width:48px', 
+    4 => 'width:48px', 
+    5 => 'width:48px', 
+    6 => 'width:80px',
+    9 => 'width:48px',
+    10=> 'width:48px',
+];
+
+########## xdat ###########
+
+$xtitles = [
+    1 => 'Выводить колонки в обратном порядке',
+    2 => 'Добавить над каждой колонкой дополнительный одинаковый для всех колонок зазор (px)',
+];
+
+$xtypes = [
+    1 => 'tinyint(1) unsigned not null default 0',
+    2 => 'smallint(3) unsigned',
+];
+
+$xnotes = [
+    2 => 'Этот вертикальный зазор необходим, когда колонки соскакивают друг под друга при узком экране',
+];
+
+
+

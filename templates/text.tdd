@@ -1,0 +1,5 @@
+<?php
+$titles[1] = 'Текст (гипертекст)';
+$types[1] = 'text';
+$params['description'] = 'Простой шаблон для текста';
+$fields['convert-url'] = [1];

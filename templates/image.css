@@ -1,0 +1,7 @@
+.image {position:relative}/*; text-align:center*/
+.image .mouseover {opacity:1}
+.image > a .mouseover:hover {opacity:0.7}
+.image p {margin-top:4px}
+.imgframe {border:solid #fff 6px; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; -khtml-border-radius: 5px; box-shadow: 1px 1px 5px rgba(0,0,0,.3); -moz-box-shadow: 1px 1px 5px rgba(0,0,0,.3); -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,.3)}
+.image .caption.above {position: absolute; bottom:0; left:0; right:0; background-color:rgba(0,0,0,.6); color:#fff}
+.image .caption.above p {color:#fff}

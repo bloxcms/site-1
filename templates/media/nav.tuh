@@ -1,0 +1,7 @@
+<?php
+
+if ($_POST['dat'][7] == 1)
+{
+    #Если установлен флажок в редактируемой категории, то сбрасываем флажок со всех остальных
+    Sql::query('UPDATE `'.Blox::info('db','prefix').'$media/nav` SET dat7=0 WHERE `block-id`=?', [Blox::getBlockInfo($_GET['block'], 'src-block-id')]);    
+}

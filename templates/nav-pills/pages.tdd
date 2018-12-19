@@ -1,0 +1,52 @@
+<?php
+
+$titles = [
+    1 => 'Скрыть этот пункт меню',
+    2 => 'Наименование пункта меню',
+    3 => 'Страница',
+];
+
+$types = [
+	1 => 'tinyint(1) unsigned not null default 0',
+    2 => 'varchar(664)',
+    3 => 'page(/!page, new)',
+];
+
+$mstyles = [
+    2 => 'width:400px', 
+];
+
+$params = [
+	'multi-record' => true,
+	'hiding-field' => 1,
+	'description' => '',
+	'no-new-rec-button' => true,
+];
+
+
+################ 
+
+$xtitles = [
+    1 => 'Вид',
+    2 => 'Уместить всё по ширине',
+    3 => 'Код иконки',
+];
+
+$xtypes = [
+    1 => "enum('горизонтально','вертикально','вкладки') default 'вертикально'",
+    2 => 'tinyint(1) unsigned not null default 0',
+    3 => 'varchar(332)',
+];
+
+$xnotes = [
+    2 => 'Для режима "горизонтально"',
+    3 => 'Коды иконок можно найти <a href="https://fontawesome.com/icons">здесь</a>',
+];
+
+$xdefaults = [
+    3 => '<i class="fas fa-chevron-right"></i>',
+];
+
+$xstyles = [
+    3 => 'width:300px', 
+];

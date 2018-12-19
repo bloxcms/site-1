@@ -1,0 +1,11 @@
+
+
+	bgColor			bg-color
+	checkLayout		check-layout
+	fontFile				font-file
+	fontSize			font-size
+	numberOfChars		num-of-chars
+	onerror				on-error
+	onready			on-ready
+	onsubmitSelector	on-submit-selector
+	onsuccess			on-success

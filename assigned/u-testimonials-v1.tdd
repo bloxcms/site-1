@@ -1,0 +1,61 @@
+<?php
+$titles = [
+    1 => 'Отзыв',
+    2 => 'Имя автора',
+    3 => 'Профессия или должность автора',
+    4 => 'Фото квадратное (60x60px)',
+];
+
+$types = [
+    1 => 'text',
+    2 => 'varchar(332)',
+    3 => 'varchar(332)',
+    4 => 'file thumbnail(crop,60) quality(70) allowedFormats(gif,jpg,jpeg,png) destination(datafiles/testimonials)',
+];
+
+$fields = [
+	'no-text-editor'=> [1],
+];
+
+$params = [
+    'multi-record' => true,
+    'description' => '',
+    'no-new-rec-button' => true,
+];
+
+#######################################
+
+$xtitles = [
+    1 => 'Заголовок',
+    2 => 'URL ссылки',
+    3 => 'Текст ссылки',
+    4 => 'Закругленный стиль',
+    5 => 'Цвет фона облака',
+    6 => 'Поключить стиль Unify',
+];
+
+$xtypes = [
+    1 => 'varchar(255)',
+    2 => 'varchar(255)',
+    3 => 'varchar(255)',
+    4 => 'tinyint(1) unsigned not null default 0',
+    5 => "enum('светлый','темный','цветной') default 'цветной'",
+    6 => 'tinyint(1) unsigned not null default 0',
+];
+
+$xdefaults = [
+    1 => 'Отзывы наших покупателей',
+    3 => 'Читать все отзывы',
+];
+
+$xnotes = [
+    1 => 'Например: Отзывы наших покупателей',
+    3 => 'Например: Все отзывы',
+    6 => 'Если данный сайт не является сайтом, построенном на шаблонах Unify',
+];
+
+$xfields = [
+    'reconvertUrl' => [2],
+];
+
+

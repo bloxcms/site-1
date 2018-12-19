@@ -1,0 +1,14 @@
+/*---------------------------------------   SECTION:FEATURES                 -----------------------------------------*/
+.features {padding-top:80px; padding-bottom:30px; background:#ffffff}
+.features .features-left {text-align:right; margin-top:26px; margin-bottom:80px}
+.features .features-left .icon-container {float:right; margin-left:20px}
+.features .features-right {text-align:left; margin-top:26px; margin-bottom:80px}
+.features .features-right .icon-container {float:left; margin-right:20px}
+.features .feature {margin-bottom:40px}
+.features .feature .icon-container {display:block; min-height:120px; margin-top:5px}
+.features .feature .icon-container .icon {width:55px; height:55px; border-radius:50%; line-height:55px; font-size:18px; text-align:center; -webkit-transition:all ease-in 0.25s; transition:all ease-in 0.25s; -webkit-background-clip:padding-box; -moz-background-clip:padding; background-clip:padding-box}
+.features .phone-image {max-width:250px; margin:auto; margin-bottom:80px}
+.features .phone-image img {width:100%}
+/*************** Green style ***********************/
+.features .feature:hover .icon-container .icon {background:#00ab66; color:#ffffff; border:2px solid #ffffff; -webkit-box-shadow:0px 0px 0px 2px #00ab66; box-shadow:0px 0px 0px 2px #00ab66}
+.features .feature .icon-container .icon {border:1px solid #00ab66; color:#00ab66}

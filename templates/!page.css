@@ -1,0 +1,284 @@
+html, body {width: auto!important; overflow-x: hidden!important}
+body {font-family: 'Roboto Condensed', Arial, Verdana, sans-serif; font-size:16px; background: #fff}
+p {margin: 5px 0}
+
+h1, h2, h3 {font-weight:bold}
+
+h1 {margin-bottom:20px}
+.headline {display: block; border-bottom: 2px solid #d0d0d0; margin-top:0}
+.headline h2, .headline h3, .headline h4 {margin: 0px 0 -2px 10px; padding:5px 0; display: inline-block}
+
+hr {border-color:#f3db99}
+
+.container, .row {position:relative}
+[class*=col-] {position:relative}
+
+.media .media-left {position:relative;}
+.media {position:relative;}
+
+
+.youtube-video {position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden}
+.youtube-video iframe,
+.youtube-video object,
+.youtube-video embed {position: absolute; top: 0; left: 0; width: 100%; height: 100%}
+
+.list-flush{padding-left: 18px; margin-left:0; margin-top:-4px} /*, .list-flush ul */
+.list-flush li {padding: 4px 0px; line-height:1.4}
+.list-flush li:first-child {padding-top:0}
+
+.blog-medium .blog-info li, .blog-medium .blog-info li a {color: #5f5f5f}
+.newsBox .well {border-radius:0 0 4px 4px}
+.btn-default {text-shadow: none}
+
+.content-sm {padding-top: 0px}
+#popupform-box .modal-header {border-radius:0}
+.bg-danger {background-color: transparent}
+
+
+#tabs-content .table thead td, 
+#tabs-content .table thead th,
+
+
+/********* Настройки docs nav ***********/
+.bs-docs-sidebar .nav > li > a {color:rgba(0,0,0,.7)}
+.bs-docs-sidebar .nav > li > a:hover {color:#f2501e; border-color:#f2501e}
+.bs-docs-sidebar .nav > .active > a {color: #f2501e; border-color: #f2501e}
+.bs-docs-sidebar .nav > .active:hover > a {color:#f2501e; border-color:#f2501e}
+
+
+.shop_filters .form-inline input {width: 90px;}
+.shop_filters button {font-size: 14px;}
+.shop_ .showCharsInItemsList td:nth-child(2) {white-space:normal}
+.shop_ .showCharsInItemsList td:nth-child(7) {white-space:normal}
+
+.shop_ #tabs-content .list-group-item {background-color:transparent}
+
+.shop_ .showCharsInItemsList h4 {font-size: 14px; white-space:nowrap}
+.shop_ .showCharsInItemsList img{width:50px; height:50px}
+
+/* .two-columns 
+.tabs-content-1 {-webkit-column-count: 2;-moz-column-count: 2;column-count: 2;-webkit-column-gap: 40px;-moz-column-gap: 40px;column-gap: 40px;}
+.tabs-content-1 table, .tabs-content-1 h4 {-webkit-column-break-inside: avoid;page-break-inside: avoid;break-inside: avoid-column;}
+.tabs-content-1 h4 {font-weight:bold}
+*/
+
+/** Planeta
+    #0070d9 blue rgb(0, 112, 217)    links too
+*/
+.thumbnail h3 a, .thumbnail-style h3 a {color:rgba(0,0,0,.9)}
+.breadcrumb a {color:rgba(0,0,0,.6)}
+
+
+    
+
+#block-183, #block-190 {padding:40px 0 22px !important}
+#news .paragraphs .headline {margin-top:0px}
+
+
+.owl-theme .owl-nav [class*='owl-']:hover {background: #f2501e}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {background:#f2501e}
+
+/* shop nav  icon */
+.shop_nav [class*=icon] {background:url(images/shop-nav-icons/0.png) 9px 50% no-repeat no-repeat; padding-left:0px;}
+.shop_nav [class*=icon] > a {padding-left:35px !important}
+.shop_nav .icon1  {background-image: url(images/shop-nav-icons/1.png)}
+.shop_nav .icon2  {background-image: url(images/shop-nav-icons/2.png)}
+.shop_nav .icon3  {background-image: url(images/shop-nav-icons/3.png)}
+.shop_nav .icon4  {background-image: url(images/shop-nav-icons/4.png)}
+.shop_nav .icon5  {background-image: url(images/shop-nav-icons/5.png)}
+.shop_nav .icon6  {background-image: url(images/shop-nav-icons/6.png)}
+.shop_nav .icon7  {background-image: url(images/shop-nav-icons/7.png)}
+.shop_nav .icon8  {background-image: url(images/shop-nav-icons/8.png)}
+.shop_nav .icon9  {background-image: url(images/shop-nav-icons/9.png)}
+.shop_nav .icon10  {background-image: url(images/shop-nav-icons/10.png)}
+.shop_nav .icon11  {background-image: url(images/shop-nav-icons/11.png)}
+
+.treemenu li:last-child {background-color:#f5f5f5}
+/* owl-carousel logos */
+#block-340 {padding:33px 0}
+/* order-delivery Lg-Sm */
+@media (min-width: 767px) {
+    #block-314 a[data-hash] {height:69px}
+}
+
+#logos-on-home #block-338 {background-image:none}
+
+.on-dark * {color:#e5c78d}
+.shop-top-nav .btn {border-color:transparent}
+.shop-top-nav .btn-link {background-color:transparent; color:#e5c78d}
+
+
+
+
+    
+/*banner */
+#block-29 {margin: 30px 0 !important}
+.top-social .btn-link {color: #e9c487}
+.top-social .btn-link:hover {color: #fff}
+
+
+.down {background: url(images/down.png) top center}
+#how  {background: url(images/down.png) top center no-repeat}
+.yandex-map-content {border:1px solid #b4cca0}
+.logo img {width:280px}
+.logo {padding-top:33px}
+
+#block-21 .alert {font-size:33px; text-align:center}
+
+
+.headline h2 {font-size:36px}
+
+#block-25 .has-error .help-block {color:#ff9b00!important}
+#block-25 .has-error .form-control {border-color:#ff9b00!important}
+#block-25 .alert {color: #fff}
+#block-25 .alert-danger {background-color: #f00; border-color: #f00}
+#block-25 .alert-success {background-color:green; border-color:green}
+
+#block-19 .btn-more {font-size:18px}
+#block-19 .thumbnail-style .btn-more {background:#f2501e}
+#block-19 .thumbnail-style a.btn-more:hover {box-shadow:0 0 0 2px #f2501e}
+
+
+
+
+
+/**
+#f2501e primary orange   rgb(242, 80, 30)
+#9d2d0a orange dark
+*/
+
+/*
+.gallery-items .thumbnail:hover .gallery-items-overlay {background-color: rgba(0, 66, 119, 0.8);}
+.gallery-items .thumbnail {border-color:transparent}
+.gallery-items .thumbnail .caption {padding:22px 0 0; font-size:18px; opacity:0.7}
+.gallery-items > .row > [class^="col-"] {padding-left:40px;padding-right:40px}
+.gallery-items > .row {margin-left:-40px; margin-right:-40px;}
+*/
+.page {background-color:#fff; margin-top:-33px; margin-bottom:44px; border-radius:5px; box-shadow:5px 5px 2px rgba(0,0,0,.2)}
+
+.top {height:116px}
+.top-3-1 {line-height:32px; font-size:17px; color:rgba(0,0,0,.8)}
+.top-3-2 {font-size:24px; color:rgba(0,0,0,.8)}
+.top-3-2:hover {color:#000}
+
+
+.ff-faq h1 {margin: -9px 0 0}
+.media-headline > h1 {position:relative; top: -6px }
+#tenders .nav-pills-downloads {margin:55px 0 55px}
+.text-scroll {background:#fffcb6; padding-left:10px}
+.carousel-control {opacity:.8}
+@media screen and (min-width: 1270px) {
+    .carousel-control .glyphicon-chevron-left {margin-left:-25px!important}
+    .carousel-control .glyphicon-chevron-right {margin-right:-25px!important}
+}
+
+/* для formateh не нужно
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus {color:#000;background-color:#fff}
+*/
+
+.nav-nav ul {background-color: #f2501e}
+.nav-nav .metismenu a {font-size: 16px}
+
+
+li[class*="icon-"] > a {background-position: 9px 50%!important; background-repeat:no-repeat!important; padding-left:40px!important} 
+li.icon-1 > a {background-image: url(../xfiles/pictograms/1.png)}
+li.icon-2 > a {background-image: url(../xfiles/pictograms/2.png)}
+li.icon-3 > a {background-image: url(../xfiles/pictograms/3.png)}
+li.icon-4 > a {background-image: url(../xfiles/pictograms/4.png)}
+li.icon-5 > a {background-image: url(../xfiles/pictograms/5.png)}
+li.icon-6 > a {background-image: url(../xfiles/pictograms/6.png)}
+li.icon-7 > a {background-image: url(../xfiles/pictograms/7.png)}
+li.icon-8 > a {background-image: url(../xfiles/pictograms/8.png)}
+li.icon-9 > a {background-image: url(../xfiles/pictograms/9.png)}
+li.icon-10 > a {background-image: url(../xfiles/pictograms/10.png)}
+li.icon-11 > a {background-image: url(../xfiles/pictograms/11.png)}
+li.icon-12 > a {background-image: url(../xfiles/pictograms/12.png)}
+li[class*="icon-"]:first-child > a {background-position-y:69%!important;} 
+li[class*="icon-"]:last-child > a {background-position-y:35%!important;} 
+
+
+    
+    
+#block-519 .form-check-tm h4 {color:#f2501e; font-size: 23px;}
+    
+.social-vk {display:block; position:absolute; top:0px; right:0px; height:50px; width:51px; background:url(../xfiles/social-vk.png)}
+
+.ribbon-list a {width:120px;margin:0 20px 0 0;text-align:center;display:inline-block;vertical-align:top;text-decoration:none}
+.ribbon-list img {width:100%; height:auto}
+div:not(.fancybox-wrap) .ribbon-list-item-title {text-decoration:none; padding:3px 0; font-size:12px; height:65px}
+
+.blog-goods h1 {margin-bottom: 23px}
+.u-thumbnails .caption h3 {font-size: 19px; color: #f2501e; text-align:center}
+.footer a, .footer a:hover {color: #fff}
+
+
+
+/* .columns-2 */
+.columns-2 {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+	-moz-column-count: 2; /* Firefox */
+	column-count: 2;
+
+	-webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+	-moz-column-gap: 40px; /* Firefox */
+	column-gap: 40px;
+}
+.columns-2 table, .columns-2 h4 {
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;         /* IE 11 */
+}
+
+.owl-theme#block-576 .caption {font-size:16px; line-height:20px; color:#333}
+.owl-theme#block-576 .caption p {color:#333}
+.owl-theme#block-576 .caption strong {white-space:nowrap; background:#ff8300; color:#fff; padding:2px 9px; border-radius:11px; font-weight:bold}
+
+
+/* formateh */
+.navbar > .container {background:#f2501e}
+.navbar-toggle {float:left; margin-bottom: 7px}
+.thumbnail-style h3 a {color: rgba(242, 80, 30, 1); font-size:23px}
+
+
+
+@media (min-width: 1200px) { /* Lg */
+}
+@media (min-width: 992px) and (max-width: 1200px) { /* Md */
+}
+@media (max-width: 991px) { /* Sm */
+.navbar-nav {background: #f2501e;border: 2px solid #f2501e;}
+.social-vk {left: 0px}
+.countdown-text-2 {display:none}
+.countdown-text-3 {font-size:14px}
+#banner {display:none}
+}
+@media (max-width: 767px) { /* Xs */
+.top {height:93px}
+.logo {padding-top:22px}
+}
+@media (max-width: 576px) { /* xs for Bootstrap 4*/
+.top-contacts {display:none}
+}
+@media (max-width: 414px) { /* md mobiles iphone 6,8,6+,8+; huawei */
+}
+@media (max-width: 359px) { /* sm mobiles (iphone 5) */
+}
+
+
+@media (max-width: 991px) {
+.navbar-inverse .navbar-toggle {margin-left:20px}
+}
+/*kamlux*/
+#sidebar-1 > div:first-child {margin-top:0!important}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {background-color: rgba(255,255,255,0.3)}
+.service .desc h4{font-size:20px}
+.navbar-inverse .navbar-nav > li > a {font-size: 22px; letter-spacing: 1px;}
+.nav>li>a {padding-left:25px; padding-right:25px}
+.bs-docs-sidebar h4 {font-size:25px}

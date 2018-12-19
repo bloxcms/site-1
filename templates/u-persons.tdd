@@ -1,0 +1,70 @@
+<?php
+
+$titles = [
+    1 => 'Фото',
+    2 => 'ФИО',
+    3 => 'Должность',
+    4 => 'Звания, описание и т.п.',
+    5 => 'Скрыть запись',
+];
+
+$types = [
+    1 => 'file thumbnail(crop,440) quality(80) allowedFormats(gif,jpg,jpeg,png) destination(datafiles/u-persons)',
+    2 => 'varchar(332)',
+    3 => 'varchar(332)',
+    4 => 'text',
+    5 => 'tinyint(1) unsigned not null default 0',
+    6 => 'varchar(128)',
+];
+
+$notes = [
+    1 => 'Фото будет преобразовано в квадрат 440x440px',
+];
+
+$params = [
+    'description' => 'Галерея персон',
+    'multi-record' => true,
+    'no-new-rec-button' => true,
+    'hiding-field' => 5,
+];
+
+$fields = [
+	'hidden'=> [6],
+];
+
+
+Tdd::bind(
+    [
+        'block-id'=>$blockInfo['id'], 
+        'field'=>6, 
+        'value'=>Url::encode(Router::getPhref(Blox::getPageHref()))
+    ],
+    $keys, $defaults
+);
+##########################################################
+
+$xtitles = [
+    1 => 'Ширина одной колонки с иконкой в формате Bootstrap',
+    2 => 'Центрировать колонки',
+    3 => 'Не отображать фотографии',
+    4 => 'Общий заголовок (текст сверху)',
+];
+
+$xtypes = [
+    1 => 'varchar(225)',
+    2 => 'tinyint(1) unsigned not null default 0',
+    3 => 'tinyint(1) unsigned not null default 0',
+    4 => 'text',
+];
+
+$xdefaults = [
+    1 => 'col-xs-6 col-sm-4 col-md-3 col-lg-3',
+    4 => '<div class="headline-center margin-bottom-60"><h2>Наша команда</h2><p>Главное богатство компании — сплоченная команда профессионалов</p></div>',
+];
+    
+$xnotes = [
+    1 => 'Ширины колонок для разных типов устройств. Пример: col-xs-6 col-sm-4 col-md-3 col-lg-3',
+];
+
+
+

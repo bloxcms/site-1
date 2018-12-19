@@ -1,0 +1,5 @@
+.thumbnails {position:relative}
+.thumbnails .thumbnail h3 {margin:0px 0 20px}
+.thumbnails .thumbnail:hover {border-color:#337ab7}
+.thumbnails .thumbnail img {width: 100%; display: block;}
+.thumbnails .thumbnail .caption {padding:9px 4px; height:81px; text-align:center; font-size:16px; font-weight:bold;}/* display:table-cell; vertical-align:middle; width:100%*/

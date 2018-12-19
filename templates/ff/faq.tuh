@@ -1,0 +1,24 @@
+<?php
+   
+# Привязка к странице
+$encode = function($str) {
+    if (!preg_match('~^[a-zA-Z0-9]*$~', $str)) { # Detect not Url::encode
+        if ($href = Url::convertToRelative($str)) {  # Inner link
+            if (!Router::hrefIsParametric($href))
+                $href = Router::getPhrefByHhref($href); # Convert human url to parametric 
+                
+        }
+    }
+    return ($href)
+        ? Url::encode($href)
+        : $str
+    ;
+};
+
+if ($_POST['dat']) { // Однозаписный режим
+    $_POST['dat'][13] = $encode($_POST['dat'][13]);
+} elseif ($_POST['data']) { // Многозаписный режим
+    foreach ($_POST['data'] as $recId=>$dat)
+        $_POST['data'][$recId][13] = $encode($dat[13]);
+}
+        

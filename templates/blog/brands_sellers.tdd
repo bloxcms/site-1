@@ -1,0 +1,66 @@
+<?php
+
+require_once Blox::info('templates','dir').'/blog/blog.conf';
+
+# Ставить вначале, так как добавляются новые элементы
+$params = [
+	'multi-record'        => true,
+	'hiding-field' => 1,
+	'description'       => 'Универсальный список гиперссылок одного из типов: Ссылка, Страница, Файл-открыть, Файл-скачать',
+];
+
+$titles = [
+    1 => 'Скрыть этот пункт меню',
+    2 => 'Наименование компании',    
+    3 => 'Ссылка  (http://...)',
+    //4 => 'Страница',
+    //5 => 'Файл',
+    //6 => 'Файл скачивать, а не открывать',
+    //7 => 'Открыть в новом окне',
+];
+
+$types = [
+	1 => 'tinyint(1) unsigned not null default 0',
+    2 => 'varchar(664)',
+    3 => 'varchar(664)',
+    //4 => 'page(!page, new)',
+    //5 => 'file  destination(datafiles/blog/goods/brands_downloads)',
+	//6 => 'tinyint(1) unsigned not null default 0',
+    //7 => 'tinyint(1) unsigned not null default 0',
+    8 => 'smallint(6) unsigned', # ID категории
+];
+
+$fields = [
+    'hidden' => [8],
+];
+
+
+$mstyles = [
+    2 => 'width:400px',
+];
+
+
+################ Общие данные #################################
+
+$xtitles = [
+    1 => 'Идентификатор комплекта блоков<br>с шаблонами blog/...',
+];
+
+$xtypes = [
+    1 => 'varchar(255)',
+];
+
+$xkeys = 'UNIQUE(`rec-id`, `block-id`)';
+
+################ Article ID #########################
+
+if (Blox::getScriptName() == 'main') {
+    $complexId = Dat::get($blockInfo, [], 'x')[1];
+    Request::add(
+        'block='.$blockInfo['id'].
+        '&p[8]='.Request::get($GLOBALS['blog/goods'][$complexId]['src-block-id'], 'pick', 10, 'eq') # Определить значение главного запроса, обычно к контентному блоку
+    );
+} elseif (isset($_GET['edit'])) 
+    $defaults[8] = Request::get($blockInfo['id'], 'pick', 8, 'eq'); # Редактирование. Запрос идет уже именно к своему блоку.
+    
+   

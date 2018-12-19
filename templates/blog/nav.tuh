@@ -1,0 +1,34 @@
+<?php
+if (!$_GET['xprefix'])
+{
+    $regularId = (int)$_GET['block'];
+    $srcBlockId = Blox::getBlockInfo($_GET['block'], 'src-block-id');
+    $recId = (int)$_GET['rec'];
+    
+    #Если установлен флажок в редактируемой категории, то сбрасываем флажок со всех остальных
+    if ($_POST['dat'][7] == 1)
+        Sql::query('UPDATE '.Blox::getTbl('blog/nav').' SET dat7=0 WHERE `block-id`=?', [$srcBlockId]);    
+    
+    # Родительская категория
+    if ($_POST['dat'][5]) 
+    {   
+        # Какая была старая родительская категория?   
+        $oldDat5 = Dat::get(['src-block-id'=>$srcBlockId, 'tpl'=>'blog/nav'],['rec'=>$recId])[5];        
+        # Если родительская категория изменяется
+        if ($oldDat5 != $_POST['dat'][5]) {
+            # KLUDGE: Это select-поле просто перебивает значение поля 2 при обновлении. Но нужно объединить оба поля в одно. Проблема в том, что в блок приходит значение поля уже как слово, а не id, и придется делать лишний запрос.
+            $_POST['dat'][2] = $_POST['dat'][5];
+            # Нужно изменить и pageInfo (родительские ключи)
+            Sql::query(
+                'UPDATE '.Blox::info('db','prefix').'pseudopages SET parent-href-block=? , parent-href-rec=? WHERE block=? AND rec=?', 
+                [$srcBlockId, $_POST['dat'][5], $srcBlockId, $recId]
+            );
+        }
+    }
+
+    # Теги в нижний регистр
+    if ($_POST['dat'][10])
+        $_POST['dat'][10] = mb_strtolower($_POST['dat'][10]);
+    
+    //$_POST['dat'][9] = date('Y-m-d'); #обновить дату
+}

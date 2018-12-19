@@ -1,0 +1,73 @@
+<?php
+
+$titles = [
+    1 => 'Картинка',
+    2 => 'URL ссылки',
+    3 => 'Подпись к иконке (и ее alt)',
+    4 => 'Закодированный URL псевдостраницы',
+];
+
+$types = [
+    1 => 'file quality(80) allowedFormats(gif,jpg,jpeg,png,svg)',
+    2 => 'varchar(333)',
+    3 => 'varchar(333)',
+    4 => 'varchar(333)',
+];
+
+$fields = [
+    'hidden' => [4],
+    'reconvert-url' => [2],
+];
+
+$params = [
+    'multi-record' => true,
+    'description' => 'Иконки с подписью.',
+    'no-new-rec-button' => true,
+];
+
+$notes = [
+    1 => 'Делайте все картинки одного размера',
+    2 => 'В произвольном виде',
+    3 => 'Отображение подписи можно отключить в экстраданных',
+    //4 => 'Закодированный URL псевдостраницы, на которой была сделана данная запись. Используется, если записи нужно привязывать к псевдостраницам.',
+];
+
+$keys = 'INDEX(dat4)';
+##### Экстраданные ##### 
+
+$xtitles = [
+    1 => 'Ширина одной колонки с иконкой в формате Bootstrap',
+    2 => 'Иконки выровнить по центру',
+    3 => 'Не отображать подписи к иконкам',
+    4 => 'Общий заголовок (текст сверху)',
+    5 => 'Привязать записи к псевдостраницам',
+];
+
+$xtypes = [
+    1 => 'varchar(332)',
+    2 => 'tinyint(1) unsigned not null default 1',
+    3 => 'tinyint(1) unsigned not null default 0',
+    4 => 'text',
+    5 => 'tinyint(1) unsigned not null default 0',
+];
+
+$xdefaults = [
+    1 => 'col-xs-6 col-sm-4 col-md-3 col-lg-2',
+    4 => '<div class="headline text-center"><h2>Наши преимущества</h2></div>',
+];
+    
+$xnotes = [
+    1 => 'Ширины колонок для разных типов устройств. Пример: col-xs-6 col-sm-4 col-md-3 col-lg-2',
+    3 => 'Подписи будут использоваться только в img[alt]',
+];
+
+##########################
+# Привязка к псевдостранице
+Tdd::bind(
+    [
+        'block-id'=>$blockInfo['id'], 
+        'field'=>4, 
+        'value'=>Url::encode(Router::getPhref(Blox::getPageHref()))
+    ],
+    $keys, $defaults
+);

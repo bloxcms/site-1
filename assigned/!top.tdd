@@ -1,0 +1,16 @@
+<?php
+return; 
+
+$titles = [
+    1 => 'Телефоны в шапке', # <p class="small">Можно вставлять изображение &lt;img ...&gt;</p>
+];
+
+
+$types = [
+    1 => 'text',
+    //2 => 'block(countdown, new)',
+];
+
+$fields = [
+	'no-text-editor'=> [1],
+];

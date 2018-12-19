@@ -1,0 +1,72 @@
+
+
+2018-07-12 20:21
+Поставить по умолчанию чистку кодов script
+
+2017-03-31 17:19
+                    
+Ввести в "fields"
+	1.
+	"features" : "inline"
+		варианты 
+			"vertical" - for radio, checkbox
+			"trail"- for input	
+			---"inline" - for input
+			можно ["horizontal","trail"]
+			
+		и заменить
+			"checks-layout" : "horizontal",	(vertical)
+		 на 
+		 	"features" : "inline"
+	2.
+	---"layout" : "dock", - чтобы пристал к предыдущему	--- ["horizontal","dock"] 
+			
+			
+=================================
+	
+-	Из json убрать первый уровень настроек в tdd?	2017-02-06 8:07
+            
+-	стили заголовков
+
+
+
+
+ * @todo 
+ *      "type":"reset" в пару к submit
+ *      Сделать режим репорта без формы и сформой
+ 
+ 
+ 
+ /*
+ 
+		
+Ввести в "divs"
+		заменить			---Расположение названий полей относительно самих полей ввода. Возможные значения: vertical, horizontal, inline (по умолчанию vertical).
+			"labelLayout" : "horizontal",
+			"cols" : ["col-sm-3","col-sm-9"],
+		 на 
+			"layout" : {"labels":"left", "cols":["col-sm-3","col-sm-9"]}
+				
+				
+				
+		labelLayout: vertical, horizontal, inline (по умолчанию vertical).
+			  labels: top        left,  (по умолчанию)
+		
+		
+		labelLayout: vertical (def)				layout: {fields: vertical, labels: top}
+		labelLayout: horizontal				layout: {fields:vertical, labels: left, cols: [col-sm-3,col-sm-9]}
+		labelLayout: inline					layout:fields: horizontal    ---labels:xxx
+				
+		добавить
+			layout:
+				labels: left, top (по умолчанию)
+				fields: horizontal, vertical (по умолчанию) ---block inline
+				cols:[]
+				
+			
+			---"layout" : {"fields":"vertical", "labels":"left", "cols":["col-sm-3","col-sm-9"]}
+					
+        
+            $div['layout']['fields'] = 'vertical';
+            $div['layout']['labels'] = 'top';
+            $div['layout']['cols']	

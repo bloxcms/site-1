@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<link href="timeTo.css" type="text/css" rel="stylesheet"/>
+
+    <style>
+        /* Поле слева от цифры*/
+        figure > div > ul {left:11px!important}     
+        /* Стиль цифры и фона */
+        .timeTo div {
+            color:#0f0!important;
+            background: linear-gradient(#0c0, #080)!important;
+            border-radius:5px;
+            border-color:rgba(0,0,0,0.5) rgba(255,255,255,0.5)  rgba(255,255,255,0.5) rgba(0,0,0,0.5);
+            text-shadow:-1px -1px 2px rgba(0,0,0,0.5);
+            box-shadow: inset 2px 3px 6px rgba(0,0,0,0.5);
+        }
+        /* Первыая группа цифр (дни)*/
+        .timeTo figure:first-child div {color:#fff!important}
+        /* Разделитель времени*/
+        span {color:#080; text-shadow:-1px -1px 1px rgba(0,0,0,0.5);}
+        
+        figcaption {color:#fff!important; text-shadow:-1px -1px 2px rgba(0,0,0,0.5);}
+    </style>
+</head>
+<body style="background:#999">
+
+    <div id="countdown-1"></div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="jquery.timeTo.js"></script>
+    <script>
+        $('#countdown-1').timeTo({
+            //timeTo: parseDate('2015-06-17'),
+            timeTo: new Date('2015-06-17'),
+            displayDays: 2,   
+            displayCaptions: true,
+            captionSize: 24,
+            lang: 'ru',
+            fontFamily: 'PT Sans Narrow',
+            fontSize: 48
+        });
+
+        /*
+        parseDate('06.21.2010', 'mm.dd.yyyy');
+        parseDate('21.06.2010', 'dd.mm.yyyy');
+        parseDate('2010/06/21', 'yyyy/mm/dd');
+        parseDate('2010-06-21');
+        */
+        function parseDate(input, format) 
+        {
+          format = format || 'yyyy-mm-dd'; // default format
+          var parts = input.match(/(\d+)/g), 
+              i = 0, fmt = {};
+          format.replace(/(yyyy|dd|mm)/g, function(part) { fmt[part] = i++; });// extract date-part indexes from the format
+          return new Date(parts[fmt['yyyy']], parts[fmt['mm']]-1, parts[fmt['dd']]);
+        }
+    </script>
+</body>
+</html>

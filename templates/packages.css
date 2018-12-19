@@ -1,0 +1,59 @@
+
+
+/*---------------------------------------
+   SECTION:  PACKAGES | Added on version 1.7      
+-----------------------------------------*/
+
+.packages {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    background: #ffffff;
+}
+
+.single-package {
+    background: #F7F8FA;
+    overflow: auto;
+    border: 0px solid #161616;
+    border-radius: 3px;
+    margin-bottom: 60px;
+}
+
+.single-package .price {
+    background: #a8d1c1;
+
+}
+.single-package .color-bg {
+    background-color: !important;
+}
+.single-package .price h2 {
+    color: #272727;
+}
+
+.single-package .price .color-bg h2 {
+    color: #FFFFFF !important;
+} 
+
+.single-package .price .sign {
+    vertical-align: super;
+    font-size: 20px;
+}
+
+.single-package .price .month {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.single-package .package-feature {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.single-package .package-feature > li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.single-package .package-feature > li > span {
+  margin-right: 7px;
+}

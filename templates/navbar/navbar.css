@@ -1,0 +1,50 @@
+
+.navbar-header > .navbar-brand {font-size:24px; line-height:0px;}/* padding-bottom:0*/
+@media (max-width: 540px) {
+    .navbar-brand {padding-top:19px}
+    .navbar-brand > img {width: 230px; height: auto;}
+}
+ul.dropdown-menu li {position:relative}
+
+/* Custom */
+/***************** navbar *****************/
+.navbar {margin:0; border:none; border-radius:0} /*For full width nav */
+.navbar-inverse {font-size: 18px}
+.navbar-inverse .navbar-nav > li > a {color:#fff}
+.navbar-inverse {background-color:transparent; background-image:none}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus {color:#fff;background-color:rgba(255,255,255,0.5)}
+
+/*dropdown-menu
+.navbar .dropdown-menu {background-color:transparent; border-color:transparent}
+.navbar .dropdown-menu > li > a {color:#fffae5}
+.navbar .dropdown-menu > li > a:hover, 
+.navbar .dropdown-menu > li > a:focus {background-color:rgba(0,0,0,0.2)}
+.navbar .dropdown-menu > .active > a, 
+.navbar .dropdown-menu > .active > a:hover, 
+.navbar .dropdown-menu > .active > a:focus {background-color:rgba(0,0,0,0.3)}
+*/
+/* 
+toggled mode 
+    max-width: 
+    1200px) Md
+    991px Sm
+    767px Xs 
+*/
+@media (max-width: 991px) {
+    .navbar-inverse .navbar-toggle {border-color: #fff; background:transparent}
+    .navbar-inverse .navbar-toggle:hover,
+    .navbar-inverse .navbar-toggle:focus {background:transparent}
+    .navbar-nav {position:relative; z-index:17; background:#242424; margin:0 -15px; border: 2px solid #333}
+    .navbar-collapse {border:none}
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {color: #fff}
+}
+.navbar .dropdown-menu > .active > a:focus {background-color:rgba(0,0,0,0.3)}
+

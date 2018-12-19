@@ -1,0 +1,40 @@
+
+
+# How to pass object by data attribute
+
+jquery how to pass array by data attribute
+jQuery.parseJSON
+	https://api.jquery.com/data/ 	"is an object "
+	http://stackoverflow.com/questions/22113770/create-an-array-from-a-single-html5-data-attribute
+	--http://stackoverflow.com/questions/16223786/store-and-retrieve-javascript-arrays-into-and-from-html5-data-attributes
+	http://www.eq8.eu/blogs/12-json-array-in-html-element-data-attribute
+	http://stackoverflow.com/questions/6071618/how-to-pass-an-array-into-jquery-data-attribute
+	
+jquery how to pass associative array by data attribute
+-jquery 
+
+javascript pass associative array by data attribute
+
+javascript pass object by data attribute
+	http://stackoverflow.com/questions/8542746/store-json-object-in-data-attribute-in-html-jquery
+	quotes http://stackoverflow.com/questions/20637581/jquery-extend-when-passing-object-from-an-html-tags-data-attribute
+	identifier to access the data	http://stackoverflow.com/questions/15838593/is-it-bad-to-add-json-on-html-data-attribute
+	json_encode	http://stackoverflow.com/questions/32820601/passing-json-data-from-php-to-html-data-attribute-and-then-to-javascript
+	http://stackoverflow.com/questions/34133265/passing-attributes-objects-through-an-attribute-javascript
+
+JSON data attribute
+	
+	
+html pass object data from button 
+	http://stackoverflow.com/questions/12835550/how-to-use-a-buttons-data-attribute-to-call-a-selected-javascript-function
+	.data()	https://www.abeautifulsite.net/working-with-html5-data-attributes
+	QQ	Passing data to a bootstrap modal	http://stackoverflow.com/questions/10626885/passing-data-to-a-bootstrap-modal
+	
+======================================
+http://stackoverflow.com/questions/13997998/jquery-create-an-array-made-out-of-the-data-attributes-of-my-select-options
+
+What characters are allowed in an HTML attribute name?
+
+
+jquery can i dot in data attribute name
+http://stackoverflow.com/questions/2891452/jquery-data-selector

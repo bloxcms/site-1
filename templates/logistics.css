@@ -1,0 +1,18 @@
+.logistics * {text-align:center; color:#902121}
+.logistics h3 {font-size:23px; line-height:26px; margin-top: 10px}
+.logistics h4 {font-size:18px; line-height:23px}
+.logistics .row-center [class*=col-] {padding:30px 10px 10px; text-align:center}
+.logistics [class*=col-]:hover {background:#ebebbb;-webkit-transition: background-color 1000ms linear;-ms-transition: background-color 1000ms linear;transition: background-color 1000ms linear}
+
+/* Md */
+@media (min-width: 992px) and (max-width: 1200px) {
+.logistics h4 {display:none}
+}
+/* Sm */
+@media (min-width: 767px) and (max-width: 991px) {
+.logistics h4 {display:none}
+}
+/* Xs */
+@media (max-width: 767px) {
+.logistics h4 {display:none}
+}

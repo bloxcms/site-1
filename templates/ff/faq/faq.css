@@ -1,0 +1,29 @@
+.ff-faq h1 {margin:-3px 0 0}
+.ff-faq .blox-searchword {background-color:rgba(255,255,0,0.5)}
+
+/* blockquote */
+.ff-faq blockquote {font-size: 14px; border-left: 5px solid #ccc;}
+.ff-faq blockquote footer {font-size: 90%}
+
+/* pagination */
+.ff-faq .pagination {margin:10px 0;}
+.ff-faq .pagination > li > a.disabled {pointer-events:none; cursor:default;}
+.ff-faq .pagination > li > a.disabled i,
+.ff-faq .pagination > li > a.disabled span {filter:alpha(opacity=40); opacity:0.4;}
+.ff-faq .pagination a.separator {border-top-color:rgba(255,255,255,0); border-bottom-color:rgba(255,255,255,0); padding-left:5px; padding-right:5px;}
+.ff-faq .pagination > li.active > a {pointer-events:none; cursor:default;}
+.ff-faq .pagination-small > li > a {padding:3px 11px}
+
+.ff-faq .pagination > li > a:hover,
+.ff-faq .pagination > li > span:hover,
+.ff-faq .pagination > li > a:focus,
+.ff-faq .pagination > li > span:focus {color:#fff;border-color:#ddd}
+
+.ff-faq hr {border-top:solid 1px rgba(0,0,0,0.3)}
+
+/*#### Volta16 #################################################*/
+.ff-faq .well.small {font-size:100%}
+.ff-faq .well ul {margin-top:30px}
+
+.ff-faq .inline-block {display:inline-block; margin:0 20px 16px 0; vertical-align:top}
+.ff-faq .ff-faq-header {margin-bottom:40px}

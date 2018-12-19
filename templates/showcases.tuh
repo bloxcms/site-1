@@ -1,0 +1,21 @@
+<?php
+    
+$altFields = [2];
+$tfield = 11;
+for ($i=1; $i<=6; $i++) {
+    $altFields[] = $tfield;
+    $tfield += 2;
+}
+
+if ($_POST['dat']) { // Однозаписный режим
+    foreach ($altFields as $field)
+        if ($_POST['dat'][$field])
+            $_POST['dat'][$field] = Text::truncate(trim(Text::stripTags($_POST['dat'][$field], 'stripQuotes')), 99, 'plain');
+    
+} elseif ($_POST['data']) { // Многозаписный режим
+    foreach ($_POST['data'] as $rec => $p)
+        foreach ($altFields as $field)
+            if ($p[$field])
+                $_POST['data'][$rec][$field] = Text::truncate(trim(Text::stripTags($p[$field], 'stripQuotes')), 99, 'plain');
+}
+

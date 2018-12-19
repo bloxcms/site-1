@@ -1,0 +1,42 @@
+<?php
+
+$titles = [
+    1 => 'Фоновая картинка',
+    2 => 'Название фото (alt)',
+    3 => 'Блок с формой',
+    4 => 'Дополнительный стиль',
+];
+
+$types = [
+    1 => 'file renameFileByField(2) destination(datafiles/ff/lead)',
+	2 => 'varchar(99)',
+    3 => 'block(form)',
+    4 => 'text',
+];
+
+$defaults = [
+    4 => '
+.ff-lead-img {border-radius:12px; box-shadow: 0px 0px 20px rgba(0,0,0,.5)}
+.ff-lead [name="form-submit"] {width: 100%; font-weight:bold}
+.ff-lead .alert.alert-success {background:green; font-size:22px; color:#fff; border:none}
+.ff-lead-form {width:280px; position: absolute; top:30px; left:30px}
+',
+];
+
+
+$notes = [
+    1 => 'Фото',
+    2 => 'Весьма желательно',
+    3 => 'Форма обычно с одним полем и кнопкой. Настраивается отдельно',
+];
+
+
+$params = [
+    'multi-record' => true,
+    'description' => '',
+];
+
+
+$fields = [
+    'noTextEditor' => [4],
+];

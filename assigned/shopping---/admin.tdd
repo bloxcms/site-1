@@ -1,0 +1,26 @@
+<?php
+
+$titles = [
+    1 => 'Блок заказов',
+    2 => 'Блок товаров заказов',
+    3 => 'Блок возможных статусов заказа',
+    4 => 'Блок истории заказа',
+];
+
+$types = [
+    3 => 'block(admin/statuses,new)', # Должно быть выше admin/orders
+    1 => 'block(admin/orders,new)',
+    2 => 'block(admin/items,new)',
+    4 => 'block(admin/histories,new)',
+]; 
+
+$params = [
+    'description' => '',
+    'no-edit-buttons' => true,
+];
+
+
+if (!$_GET['single'])
+    $fields['none'] = [2, 4];
+#elseif (isset($GLOBALS['shop/client/setting'])) #isClient
+    #$fields['none'] = [3, 4];

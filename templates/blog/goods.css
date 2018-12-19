@@ -1,0 +1,30 @@
+
+.blog-thumbnail {margin-bottom:20px}
+.blog-thumbnail .thumbnail {margin-bottom:0px}
+.blog-thumbnail .caption {text-align:center; min-height:60px; padding-top:8px; font-size:16px; line-height:16px}
+.blog-thumbnail .caption a {color:#333; text-decoration:none;}
+.blog-thumbnail:hover .caption a,
+.blog-thumbnail .caption a:active {color:#0055cc}
+.blog-thumbnail .img {width:100%}
+
+.blog-paragraphs img {margin-top:7px;}
+.blog-paragraphs .floatLeft   {position:relative; margin-bottom: 10px; float: left; margin-right: 15px }
+.blog-paragraphs .floatRight  {position:relative; margin-bottom: 10px; float: right; margin-left: 15px }
+.blog-paragraphs .floatNone   {position:relative; padding-bottom: 10px; margin:0 auto;}
+.blog-paragraphs h2 {margin-top: 23px;}
+.blog-paragraphs h2.first {margin-top: 13px;}
+.blog-paragraphs .photoCaption {margin-top:5px; text-align:center}
+
+.blog-goods h1 {margin-top:0}
+
+.blog-goods .img-responsive {width: 100%} /* Чтобы картинки могли увеличиваться больше своего натурального размера */
+
+.blog-goods .table-view td {vertical-align:middle; padding:5px 0}
+.blog-goods .table-view td:first-child {width:33px; vertical-align:top; text-align:center}
+.blog-goods .table-view td:not(:first-child) {padding-left:8px}
+.blog-goods .table-view h3 {margin:0}
+
+/*
+.blog-goods .table thead td, 
+.blog-goods .table thead th {font-weight:bold; background: rgba(10,65,126,.2)}
+*/

@@ -1,0 +1,21 @@
+{
+  "name": "conformity",
+  "version": "0.2.3",
+  "main": [
+    "dist/conformity.js",
+    "dist/conformity.min.js"
+  ],
+  "dependencies": {
+    "jquery": ">=1.8.0"
+  },
+  "ignore": [
+    "node_modules/",
+    "grunt",
+    ".gitignore",
+    "bower.json",
+    "/conformity.js",
+    "Gruntfile.js",
+    "package.json",
+    "CHANGELOG.md"
+  ]
+}

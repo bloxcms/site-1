@@ -1,0 +1,164 @@
+4 =>"file maxWidth(160) 
+
+
+Доп. поля открываем через экстраданные 
+		
+gallery	---portfolio
+
+# 10 Структура данных галереи
+	gallery/items.tpl
+	Универсальности здесь не добьешся?
+		$titles = [
+			--- универсальные данные ---
+			1 => 'Поле привязки',
+			2 => 'Фотоминиатюра',
+			3 => 'Название (подпись)', 
+			4 => 'Скрыть', 
+			---4 => 'Всплывающая подсказка (tooltip)',  //Если нет блока в карточке всплывает именно она (без раздевания), если есть то работает как тултип (с раздеванием)
+			---4 => Запись блока (pick) или 'Подробный текст',
+			---5   => Запись блока (pick) или URL ссылки, Большое фото
+		--- универсальные данные ---
+
+			
+		$xtitles = [
+			--1 => 'Скрыть название(подпись)', 
+			2 => 'Общий заголовок',
+			3 => 'Колонки — по центру',
+			4 => 'Ширина фотоминиатюры',
+			5 => 'Высота фотоминиатюры',
+			6 => 'Режим кадрирования фотоминиатюры',
+			7 => 'Ширина иконок в формате Bootstrap 3 (class)',	---1   => 'Ширина одной иконки<br>в режиме lg',
+			--
+			1 => 'Блок для краткого описания (для шторки)', 
+					ссылка для перехода
+					ссылка для всплывашки
+					техт1
+					техт1
+			2 => 'Блок для контента',
+					Фото
+					Текст (html)
+					---Блок/ см. экстраданные
+		blox.ru
+			=Сайт
+			Блок для краткого описания (для шторки)
+				Описание (при наведении целиком)
+				Хештеги (при наведении целиком)
+				[Сайт]	---Смотреть сайт в интернете
+				[Хочу подобный сайт]
+				[Снимок] для Desktop		---Смотреть снимок
+		logo.su
+			=ООО «Казанская Сантехническая Компания» ---tooltip Владелец
+			Блок для краткого описания (для шторки)
+				Дата приоритета: 09.08.2016
+				Номер свидетельства: 626718
+				
+			
+	
+# 20 Modal vs Fansybox
+	# Можно открывать 
+		фотографии
+		или даже открывать целый блок (Fansybox может также это делать)
+	# Окно
+		Всплывающее окно на всю ширину в масштабе 1:1 с прокруткой в диве
+		Листание по типу карсели
+		Для порфолио логотипов (бланк, визитка), для сайтов (не нужно?)
+	# Миниатюру и большое фото загружать отдельно в разные блоки?
+		-	невозможно пролистывание? 
+		-	Аяксом подгружать - это экономно?
+		-	Соседние записи же подгружаются
+# 40 Навигация по категориям
+	gallery/nav.tpl
+	(лендинг, интернет-магазин)
+	Nav управляет карточкой
+	Отложить ее до следующей версии
+	Можно сделать через Nav и Tdd::bind()
+	Вид
+		Горизотально с выпадашками
+		Вертикально, древовидно
+# 50 Навигация по хештегам  
+	# Штатный швблон
+		В шаблоне указываюся поля, в которых могут хештеги, $fields['hashtagged'] = [];. Хештеги автоматически превращаюся в ссылки при выводе. 
+		Можно использовать отдельное спецполе для хештегов (#авто #медицина #окна). Они будут естественно превращаться в ссылки
+		При сохранении записи будет происходить обновление блока с Hashtag
+		В хештегах разрешены все символы, кроме пробела, точки и знаков препинания (окончания фразы или предложения). Дефис разрешен(?)
+	# Блок навинации по хештегам
+		При клике выводятся все записи с этим хештегом. 
+		gallery/hashtags.tpl
+		В отдельном блоке Hashtag с индексацией. Будет происходить обычный pick запрос, параллельный с Nav. По найденным номерам записей будут извлекаться товары. Поэтому отдельное поле в шаблоне товаров для хештегов не нужно
+	# Разное
+		Хештеги в карточке передают данные в Hashtag при сохранении записей. Hashtag управляет карточками
+		Должен быть отдельный блок с классом Hashtag по типу Nav. Сортировка по алфавиту, по частоте.
+		---Однако нужно как-то при сохранении Nav нужно отсеивать запросы Hashtag. Например, блок Hashtag включать позже Nav.
+	
+	
+	
+	
+
+
+
+
+
+
+
+08.07.2018 15:41
+# Карточка 
+	# Дизайн
+	-	Размер побольше, квадратный (вертикальный?)
+	-	Навигация по хештегам (поиск: окна, лендинг), ---по видам деятельности (окна), по типам сайтов (лендинг, интернет-магазин, стандарт)
+	-	Lazy load
+		+	Lazy load
+				Все карточки открываются, но картинки подгружаются лениво
+				Без кнопки [загрузить еще]
+		--	или Пагинация ?
+				Кнопка "см. все" карточки. Все карточки открываются, но картинки подгружаются лениво
+
+
+	# JS, HTML
+		# Hover portfolio
+			# bootstrap {3}	https://wrapbootstrap.com/themes/portfolios-resumes/page.1/sort.sales/order.desc?branch=3.x
+				&&&	http://demo.fuviz.com/reen/v1-7/portfolio.html
+				&&&&	http://wrapbootstrap.com/preview/WB09S4JFK	на мобильник успел среагировать
+				&&&	http://themes.2the.me/Semantic/1.1.4/Site/portfolio-boxed-gutter-hover-black.html
+				&&&	подпись 	http://bootstraplovers.com/templates/codeon-v3.4/demo-default.html
+				&&&	http://wrapbootstrap.com/preview/WB0100H81
+			# bootstrap 4 card	https://wrapbootstrap.com/themes/portfolios-resumes/page.1/sort.date/order.desc?branch=4.x
+					при наведении 
+					&&&&&	http://theme.nileforest.com/html/apollo-v1.3/page-portfolio_grid.html	можно сделать с помощью wow
+							http://theme.nileforest.com/html/apollo-v1.3/index.html#portfolio		from http://wrapbootstrap.com/preview/WB04J6431
+							
+					&&&&	http://wrapbootstrap.com/preview/WB0G29955
+					&&&&&	http://wrapbootstrap.com/preview/WB02361T8
+		# Lazy load
+			Выбрал #jquery.lazy 2018	http://jquery.eisbehr.de/lazy/		https://github.com/eisbehr-/jquery.lazy/
+			------------------------
+			&&&&&	2016	Обзор http://blog.dynamicdrive.com/5-brilliant-ways-to-lazy-load-images-for-faster-page-loads/
+					++	2018	jquery.lazy
+					+-	2017	lazy-load-xt	https://github.com/ressio/lazy-load-xt	-сайт не работает, обновлений мало
+					"lazy-load-xt" "jquery lazy"
+					lazy load ressio eisbehr
+					"jquery.lazy.js" vs "jquery.lazyloadxt.js"
+					2016	blazy, simply w/o jquery	http://dinbror.dk/blazy/							http://dinbror.dk/blog/blazy/
+			2014	https://appelsiini.net/projects/lazyload/
+			&	http://afarkas.github.io/lazysizes/#examples
+			2018	https://github.com/verlok/lazyload
+			&&	https://codepen.io/2kool2/pen/XavqyY
+			&&	https://css-tricks.com/snippets/javascript/lazy-loading-images/
+			&&	https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
+			old
+				Сделать как blox.ru или http://jsfiddle.net/markcoleman/bqjqb/9/
+				https://www.jqueryscript.net/demo/Responsive-Photo-Gallery-with-Image-Lazy-Load-Effect-jQuery-Least-Plugin/
+				http://notlaura.com/show-title-hovering-image/
+
+
+
+================================================================================
+Old
+ПУТЬ К КЛИЕНТАМ ВЫГЛЯДИТ ТАК	http://nextteam.ru/
+
+# Хочу как у него
+Акция "Хочу сайт в таком стиле"	http://portfolio.megagroup.ru/shop
+Я Вань такую же хочу
+
+
+Тексты
+https://artklen.ru/sozdanie-saitov?utm_source=yandex&utm_medium=rsya&utm_campaign=27046827&utm_content=4127433273_zen.yandex.ru&utm_term=веб%20студия&yclid=5647388184288957319

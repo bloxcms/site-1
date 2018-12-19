@@ -1,0 +1,25 @@
+<?php
+$titles = [
+	1 => 'Заголовок',
+	2 => 'Текст',
+    3 => 'Css-свойства контейнера в делегированном режиме',
+];
+
+
+$types = [
+	1 => 'varchar(332)',
+	2 => 'text',
+    3 => 'varchar(332)',
+];
+
+$defaults = [
+	1 => '<h3><i class="far fa-calendar-alt"></i> План мероприятий</h3>',
+    3 => 'overflow:auto; height:400px',
+];
+
+$params = [
+    'edit-button-style' => true,
+    'description' => '',
+];
+
+$fields['convert-url'] = [2];

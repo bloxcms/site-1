@@ -1,0 +1,9 @@
+<?php
+
+$titles = [
+    1 => 'Блок формы',
+];
+
+$types = [
+    1 => 'block(ff/form)',
+];

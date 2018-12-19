@@ -1,0 +1,10 @@
+5.0.0	2018-08-15	Все шаблоны перенесены в папку ff
+		Замены при переходе с версии 4.0.0
+			f-popup-leads		ff/lead		ff-lead
+			f-popup-trigger		ff/popups/trigger	ff-popups-trigger
+			f-popup			ff/popups	ff-popups			(\W)f-popup(\W)
+			f-popup.js			ff/popups/popups.js
+			f-popup-			(\W)f-popup-	\1ff-popups-
+			f-form				ff/form		ff-form			(\W)f-form(\W)		\1ff/form\2
+			f-faq				ff/faq		ff-faq			(\W)f-faq(\W)		\1ff/faq\2
+			---? fpopup				ffpopup ?

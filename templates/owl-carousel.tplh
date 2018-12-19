@@ -1,0 +1,107 @@
+<?php
+//qq(Blox::info('templates','url').'/assets/OwlCarousel2/dist/assets/owl.carousel.min.css');
+Blox::addToHead(Blox::info('templates','url').'/assets/OwlCarousel2/dist/assets/owl.carousel.min.css');
+Blox::addToHead(Blox::info('templates','url').'/assets/OwlCarousel2/dist/assets/owl.theme.default.min.css');
+Blox::addToHead(Blox::info('templates','url').'/assets/OwlCarousel2/dist/assets/owl.theme.green.css');
+Blox::addToFoot(Blox::info('templates','url').'/assets/OwlCarousel2/dist/owl.carousel.min.js');
+
+if ('открывать большое фото' == $xdat[7]) {
+    Blox::addToHead(Blox::info('cms','url').'/vendor/fancybox/jquery.fancybox.css');
+    Blox::addToFoot(Blox::info('cms','url').'/vendor/fancybox/jquery.fancybox.js', ['position'=>'bottom']);
+    Blox::addToFoot(Blox::info('cms','url').'/vendor/fancybox/jquery.fancybox.settings.js', ['after'=>'jquery.fancybox.js']);
+}
+
+$gap = $xdat[9] ?: 10;
+$stageWidth = $xdat[10] ?: 1140;
+$numOfThumbs = $xdat[4] ?: 5;
+$thumbwidth  = $xdat[2] ?: ceil(($stageWidth + $gap)/$numOfThumbs - $gap);
+$stretchFactor = 1.1; # Допустимый коэффициент растяжения фото от его натурального размера
+$respOptions = '0:{items:1}';
+for ($n=2; $n<=$numOfThumbs; $n++) {
+    $w = ceil(($thumbwidth * $stretchFactor + $gap)*($n - 1));
+    if ($w > $stageWidth) {
+        $respOptions .= ','.$stageWidth.':{items:'.$numOfThumbs.'}';
+        break;
+    }
+    $respOptions .= ','.$w.':{items:'.$n.'}';
+}
+    
+    
+/**
+TODO 
+For mobiles dynamicaly disable the option: nav: true
+Example: var owlData = owl.data('owlCarousel'); owlData.reinit({nav: true});
+*/
+$js = '
+<script>
+    $(document).ready(function() {
+        var owl = $("#block-'.$block.' > .owl-carousel");
+        /* For mobiles */
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            owl.owlCarousel({
+                margin: '.$gap.',
+                rewind: true,
+                slideBy: "page",
+                lazyLoad: true,
+                autoplayTimeout: 6000,
+                autoplayHoverPause: true,
+                responsiveBaseElement: "#block-'.$block.' > .owl-carousel",
+                responsive: {'.$respOptions.'},
+                autoplay: true
+            });
+        } 
+        /* For desktop */
+        else {
+            owl.owlCarousel({
+                margin: '.$gap.',
+                nav: true,
+                rewind: true,
+                slideBy: "page",
+                lazyLoad: true,
+                autoplayTimeout: 6000, /* Время между прокрутками. Bug: Если меньше ~1500 то прокручивает один раз */
+                autoplayHoverPause: true,
+                navText: [\'<span class="glyphicon glyphicon-chevron-left"></span>\',\'<span class="glyphicon glyphicon-chevron-right"></span>\'],
+                responsiveBaseElement: "#block-'.$block.' > .owl-carousel",
+                responsive: {'.$respOptions.'}';
+                if (!$edit)
+                    $js.=',autoplay: true';
+                if ($xdat[11])
+                    $js.=',autoWidth: true';
+                $js.='
+            });            
+        }'; 
+        # Выровнить по центру, когда карусель полностью не заполнена
+        if ($xdat[11]) {
+            $js.='
+            $(window).on("resize load", function() {
+                owl.find(".owl-stage").css({"margin-left":"auto","margin-right":"auto"});
+            });';
+        } elseif ($xdat[8] && count($tab) < $numOfThumbs) {
+            $js.='
+            $(window).on("resize load", function() {
+                var outerStage = owl.find(".owl-stage-outer");
+                var outerWidth = Number(outerStage.css("width").replace("px", ""));
+                var width = Number(owl.find(".owl-stage").css("width").replace("px", ""));
+                if (width < outerWidth)
+                    outerStage.css("left", Math.ceil(outerWidth - width)/2 + "px");
+                else 
+                    outerStage.css("left", 0);
+            });';
+        }
+        $js.='
+    });
+</script>';
+Blox::addToFoot($js, 'minimize');
+/*
+// For desktop
+                //Reserve
+                dots: false, // Спрятать точки
+                navContainer: "#block-'.$block.' .owl-nav-container",
+                autoplaySpeed:5000, // непрерывное движение Bug??
+                smartSpeed: 600, // Bug: движет только один раз
+                fluidSpeed: 7744, // Bug:??
+                loop: true, //Bug:??
+
+    echo ",autoWidth: true":  Bug: при этой опции постраничная прокрутка (slideBy: "page") не работает. @todo if autoWidth then slideBy page problem  https://github.com/OwlCarousel2/OwlCarousel2/issues/1100
+*/
+

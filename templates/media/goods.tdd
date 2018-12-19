@@ -1,0 +1,124 @@
+<?php
+
+
+# TODO 480x320
+$defaultThumbwidth  = 350;
+$defaultThumbheight = 220;
+/**
+Ширина	4x3	3x2	16x9
+192 	144	128	108
+240 	180	160	135 *
+288 	216	192	162
+336 	252	224	189
+384	    288	256	216
+432 	324	288	243
+480	    360	320	270 *
+*/
+
+### Динамичное управление настройками миниатюры с помощью экстаданных ###
+
+$xDat = Dat::get($blockInfo, [], 'x');       
+$thumbwidth  = $xDat[1] ?: $defaultThumbwidth;
+$thumbheight = $xDat[2] ?: $defaultThumbheight;
+$mode = ($xDat[3]== 'ВПИСАТЬ') ? 'fit' : 'crop';
+
+if ('ВВЕРХ' == $xDat[4])
+    $thumbvalign = 'top';
+elseif ('ВНИЗ' == $xDat[4])
+    $thumbvalign = 'bottom';
+else
+    $thumbvalign = 'center';
+
+
+
+########################## Данные ##################################
+
+$titles = [    
+    1  => 'Фото<span class="small"><br>Допустимые форматы файлов jpg, gif, png<br>Для видео это фото будет миниатюрой</span>',
+    2  => 'Фото миниатюры',
+    3  => 'Подпись к фото/видео',
+    4  => 'Ссылка на видеоролик, размещенный на <br>видеохостинге (YouTube, RuTube, Vimeo)',
+    //5 => 'Как поместить фото в кадре миниатюры',
+    //6 => 'Куда поместить фото в кадре миниатюры',    
+];
+    
+$types = [
+    1 => 'file maxWidth(1600) maxHeight(1200) allowedFormats(gif,jpg,jpeg,png) quality(80) destination(datafiles/media/photo) stamp(xfiles/stamp.png) renameFileByField(3,300)',
+    2 => 'file thumbnail('.$mode.','.$thumbwidth.','.$thumbheight.','.$thumbvalign.') sourceField(1) quality(50) destination(datafiles/media/photo-sm) renameFileByField(3,300)',
+    3 => 'tinytext',    
+    4 => 'varchar(1000)',
+    //5 => "enum('ВПИСАТЬ','ОБРЕЗАТЬ') default 'ВПИСАТЬ'",
+    //6 => "enum('ВВЕРХ','ЦЕНТР','ВНИЗ') default 'ЦЕНТР'",    
+    10 => 'smallint unsigned', // ID категории
+];
+
+if (isEmpty(Request::get($blockInfo['id'], 'pick', 10, 'eq')))
+    Request::add('block='.$blockInfo['id'].'&p[10]=0');
+
+$defaults[10] = Request::get($blockInfo['id'],'pick', 10, 'eq');
+
+$fields = [
+    'hidden' => [10],
+];
+
+$params = [
+	'no-new-rec-button' => true,
+	'multi-record' => true,
+	'description' => 'Фото/видеоальбом. Миниатюры одинаковой высоты и ширины. Автоматический перенос',
+];
+
+$notes = [
+	2 => 'Вы можете закачать сюда другое фото, если автоматически созданная миниатюра не удовлетворяет вас',
+    4 => 'Например, ссылка на YouTube<br>имеет вид: https://www.youtube.com/embed/qrxMNPco <br>Можно также вставить полный HTML-код <br>(начинающийся с &lt;iframe...)',
+];
+
+############################## Экстраданные ###############################
+
+$xtitles = [    
+    1 => 'Ширина фото миниатюры (px)',
+    2 => 'Высота фото миниатюры (px)',
+    3 => 'Режим кадрирования фото',
+    4 => 'Куда поместить фото в кадре миниатюры',    
+    5 => 'Ширина для смартфонов (xs)',
+    6 => 'Ширина для планшетов (sm)',
+    7 => 'Ширина для ноутбуков (md)',
+    8 => 'Ширина для десктопов (lg)',
+    9 => 'Если нет подписи к фото, то использовать имя файла',
+    10=> '... без расширения',
+    /*
+	9 => 'Высота, отведенная под подпись (px)<div class="small">По умолчанмю 60</div>',
+	10=> 'Размер шрифта подписи (px)<div class="small">По умолчанмю 16</div>',
+	11=> 'Шрифт жирный',
+    */
+    12=> 'Выводить фото без категорий',
+        
+];
+  
+$xcaptions = [    
+    1 => 'Реальные размеры фотоминиатюр',
+    5 => 'Визуальные размеры фотоминиатюр (целое число от 1 до 12)<br><span class="small">12 — на всю ширину, null — не задано (берется значение более мелкого устройства)</span>',
+    9 => ' ',//Парамеры подписи под фото
+];
+    
+$xtypes = [
+    1 => 'smallint(4) unsigned default '.$defaultThumbwidth,
+    2 => 'smallint(4) unsigned default '.$defaultThumbheight,
+    3 => "enum('ВПИСАТЬ','ОБРЕЗАТЬ') default 'ВПИСАТЬ'",
+    4 => "enum('ВВЕРХ','ЦЕНТР','ВНИЗ') default 'ВНИЗ'",    
+    5 => 'tinyint(2) default 6',
+    6 => 'tinyint(2) default 4',
+    7 => 'tinyint(2) default null',
+    8 => 'tinyint(2) default null',
+    9 => 'tinyint(1) unsigned not null default 0',
+    10=> 'tinyint(1) unsigned not null default 0',
+    /*
+	9 => 'smallint(3) unsigned',
+	10=> 'smallint(3) unsigned',
+	11=> 'tinyint(1) unsigned not null default 0',
+    */
+	12=> 'tinyint(1) unsigned not null default 0',
+];
+
+$xfields = [
+    'nullable' => [5,6,7,8],
+];

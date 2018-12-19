@@ -1,0 +1,12 @@
+<?php
+
+$titles[2] = 'Название ссылки';
+$titles[3] = 'Скрыть эту ссылку';
+
+$types[1] = 'page(/!page,new)';
+$types[2] = 'varchar(99)';
+$types[3] = 'tinyint(1) unsigned not null default 0';
+
+$params['multi-record'] = true;
+$params['hiding-field'] = 3;
+$params['description'] = "Шаблон для выпадающего подменю.";

@@ -1,0 +1,4 @@
+<?php
+
+if (!$_POST['dat'][3])
+    $_POST['dat'][4] = 0;

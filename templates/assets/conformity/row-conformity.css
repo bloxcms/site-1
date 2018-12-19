@@ -1,0 +1,4 @@
+[class*=col-] {position:relative}
+.row-conformity .to-bottom {position:absolute; bottom:0; left:0; right:0}
+.row-center {text-align:center}   
+.row-center [class*=col-] {display:inline-block; float:none; text-align:left; margin-right:-4px; vertical-align:top}

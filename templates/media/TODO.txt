@@ -1,0 +1,54 @@
+Переделать через .to-bottom?
+		Уже подключены всегда в шаблоне rows 
+		.row-conformity					Сделать все колонки одной минимальной высоты высоты
+		.row-conformity.row-centered		Центрировать колонки (когда общая ширина меньше 12 единиц)
+		.row-conformity .to-bottom			Вложенный в колонку бокс .to-bottom выравнить понизу
+
+
+ * @todo Перенести $thumbtype и $align из экстраданных в основные данные. 
+ 
+        +   Сделать единый thumbnail($type, $width, $height, $align, $color) - Сюда записываются дефолтные значения.
+                    $type {crop, add}
+                    $align: {top-left, top, top right, left, center, right, bottom left, bottom, bottom right }
+                    $color
+                    Выделить поля 
+                    $params['thumbnails'][2] => ['type'=>1, 'align'=>2, 'color'=>3]
+                    ---$params['thumbnailSettingsFields'] = ['type'=>1, 'align'=>2, 'color'=>3]
+                    	---thumbnailSettingsFields	---thumbnailFields
+        ---   То есть во время сохранения, нужно этот параметр брать не из tdd а из POST. Для многозаписного в tdd это не подойдет - это опять нужно делать в ?update.
+			/*
+			$_POST = Array
+			(
+			    [selectListSubmitField] => 0
+			    [dat] => Array
+			        (
+			            [3] => Начало - всегда праздник!
+			            [4] => 
+			            [5] => ОБРЕЗАТЬ
+			            [6] => ВВЕРХ
+			        )
+
+			    [okButton] => submit-and-return
+			)       
+			*/
+			if (Blox::getScriptName() == 'update') {
+			    if (isset($_POST['dat'])) {
+			        $_POST['dat'][5]
+			        $_POST['dat'][6]
+			    } elseif (isset($_POST['data']))  {
+			        
+			        //Это  здесь не работает!
+			    }
+        ---   Но надежнее делать двойной прогон ?update. Но в любом случае нужно знать, какое поле влияет на это.
+        
+        
+        
+        
+ * @todo Размеры миниатюры ($thumbwidth, $thumbheight) задаются в экстраданных. Для галереи без навигации это хорошо. Но нужно добавить перебивку в media/nav для данной категории (как в articles) 
+                     	
+ * @todo
+    # Вместо редиректа - повторная загрузка блока
+  	Сама проблема - вообще избавиться от редиректов, создаваемых полями 6, 7 
+    Отменяется так как url становится неправильным. Решай вопрос нормально - делай промежуточную галерею.
+    	Меняется параметрический запрос
+ 

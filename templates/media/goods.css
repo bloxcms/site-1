@@ -1,0 +1,46 @@
+
+.media-headline {display:block; float:left}
+.media-headline > h1 {margin:0 0 28px}
+    
+/********* Галерея категорий ************/
+.media-thumbnail {margin-bottom:20px}
+.media-thumbnail .thumbnail {margin-bottom:0px; box-shadow:none; background-color:transparent}
+.media-thumbnail h4 {line-height:20px}
+.media-thumbnail h4 a {color:#555; text-decoration:none}
+.media-thumbnail h4 a:hover,
+.media-thumbnail h4 a:active {color:#324c80;}
+
+.media-text {font-size:14px; padding-bottom:15px}
+
+
+/*.media-photoItem {min-height:450px}*/
+
+.media-thumbnail .caption,
+.media-photoItem .caption {text-align:center; min-height:60px;  padding:8px 0 16px; font-size:16px; line-height:18px; }
+.media-thumbnail .caption > a,
+.media-photoItem .caption > a {color: #333;  text-decoration:none}
+
+
+/*Чтобы на видео низ был не активен*/
+.fancybox-nav {width: 20%; height: 70%;}
+.fancybox-nav span {top: 67%;}
+
+/*Image Hover v1*/ 
+.img-hover-v1 span {display: block; overflow: hidden; position: relative}
+.img-hover-v1 span:after {top: 0; left: 0; width: 100%; height: 100%; content: " "; position: absolute}
+.img-hover-v1:hover span:after {background: rgba(0,0,0,0.3)}
+.img-hover-v1 img, .img-hover-v2 img, 
+.img-hover-v1 span:after {transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out}
+.img-hover-v1:hover img {-transform: scale(1.1); -o-transform: scale(1.1); -moz-transform: scale(1.1); -webkit-transform: scale(1.1)}
+
+/* Чтобы горизонтально выравниваась по центру */
+.img-hover-v1 img, 
+.img-hover-v2 img, 
+.img-hover-v1 span:after {width:100%;}
+.img-hover-v1 > span > img.player-icon {dispaly:block; width:56px; margin:auto; position:absolute; top:0; left:0; bottom:0; right:0}
+
+/*************************** Диев *********************************************/
+
+.media-thumbnail:hover h4 a,
+.media-thumbnail h4 a:active {color:red}
+.media-photoItem:hover .caption > a {color:red}

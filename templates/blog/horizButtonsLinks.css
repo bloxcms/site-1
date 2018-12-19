@@ -1,0 +1,5 @@
+.horizButtonsMenu       {display:table; border-collapse:separate; border-spacing:10px; position:relative}
+.horizButtonsMenu ul    {display:table-row}
+.horizButtonsMenu ul li {display:table-cell; vertical-align:middle}
+.horizButtonsMenuWrap {text-align: center}
+.horizButtonsMenuWrap .horizButtonsMenu {display: inline-block}

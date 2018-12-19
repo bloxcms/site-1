@@ -1,0 +1,54 @@
+<?php
+
+$titles = [
+    9 => 'Скрыть запись',
+	1 => 'Заголовок параграфа',
+	2 => 'Текст (гипертекст)',
+	3 => 'Фото <br><span class="small">допустимые форматы файлов jpg, gif, png, svg</span>',
+	4 => 'Фото меньше', # скрыто
+	5 => 'Подпись к фото',
+	6 => 'Ширина фото, в процентах от ширины колонки',
+	7 => 'Расположение фото',
+	8 => 'Разрешить открывать фото в отдельном окне',
+    10=> 'Закодированный URL страницы', #bind
+];
+
+$types = [
+	1 => 'varchar(255)',
+	2 => 'text',
+	3 => 'file maxWidth(1200) maxHeight(1200) quality(80) allowedFormats(gif,jpg,jpeg,png,svg,webp) stamp(xfiles/stamp.png)',
+	4 => 'file maxWidth(400) maxHeight(400) sourceField(3) quality(80)',
+	5 => 'varchar(255)',
+	6 => 'smallint(3) unsigned not null default 0',
+	7 => "enum('влево','центр','вправо')",
+	8 => 'tinyint(1) unsigned not null default 0',
+    9 => 'tinyint(1) unsigned not null default 0',
+    10=> 'varchar(333)', #bind
+];
+
+$defaults = [
+	6 => 40,
+];
+
+$notes = [
+	6 => 'До включительно 40% в качестве миниатюры используется малое фото. Если качество окажется неприемлемым, установите значение 41% и более',
+];
+
+$fields['hidden'] = [10]; #bind 10
+        
+$params = [
+	'multi-record' => true,
+    'hiding-field' => 9,
+	'description' => 'Шаблон для статей. Каждая запись состоит из заголовка второго уровня, фото и текста. В шаблоне можно размещать любое количество фотографий (если продолжать текст в новой записи).',
+];
+
+# Привязка к псевдостранице #bind
+$keys = 'INDEX(dat10)'; #bind
+Tdd::bind(
+    [
+        'block-id' => $blockInfo['id'], 
+        'field' => 10, 
+        'value' => Url::encode(Router::getPhref(Blox::getPageHref()))
+    ],
+    $keys, $defaults
+);

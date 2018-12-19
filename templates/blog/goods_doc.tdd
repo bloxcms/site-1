@@ -1,0 +1,12 @@
+<?php
+
+$titles[1] = 'Файл Excel или Word';
+$titles[2] = 'Ширина окна отображения';
+$titles[3] = 'Высота окна отображения';
+
+$types[1] = 'file allowedFormats(xls,xlsx,doc,docx)';// destination("xfiles")
+$types[2] = 'smallint(5) unsigned not null default 0';
+$types[3] = 'smallint(5) unsigned not null default 0';
+
+
+$params['description'] = 'Загружаемый Excel файл, показ средствами Google';

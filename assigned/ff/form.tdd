@@ -1,0 +1,41 @@
+<?php
+#ORIGIN: eskul
+
+
+$titles = [
+    1 => 'Конфигурация формы',
+    2 => 'Сообщение об отправке замещает форму',
+    3 => 'Сохранять данные формы в сессии',
+];
+
+$notes = [
+    1 => '<p>Запишите сюда массив в формате JSON (начинается с фигурной скобки) или вставьте сюда внутренний URL запрос к любому блоку (?block=...), выводящему такой массив (через echo).</p>',
+];
+    
+$types = [
+    1 => 'text',
+    2 => 'tinyint(1) unsigned not null default 0',
+    3 => 'tinyint(1) unsigned not null default 0',
+];
+
+$styles = [
+    1 => 'height:400px; overflow: auto; white-space:nowrap; width:400px; ',
+];
+
+$params = [
+    'version' => '5.0.0',
+    'description' => 'Шаблон для создания форм любого состава и любой компоновки.',
+    'no-edit-buttons' => true,
+];
+$fields = [
+    1 => ['dont-convert-url','no-text-editor'],
+];
+    
+
+# Структура формы по умолчанию
+if ('assign' == Blox::getScriptName()) { # Для однозаписного шаблона так
+    $defaults[1] = file_get_contents(Blox::info('templates','dir').'/ff/form/config-default.json');
+    # Если используются шаблоны другого сайта, переделать на абсолютный путь
+    if (Blox::info('templates','dir') != Blox::info('site','dir').'/templates')
+        $defaults[1] = str_replace('"templates/', '"'.Blox::info('templates','dir').'/', $defaults[1]);
+}

@@ -1,0 +1,11 @@
+
+1.0.0	+popup+form, eskulap	
+		Из файла popupform.conf убрать строку: require'templates/faq.inc';
+		В page.tpl вставить
+			Blox::addToFoot(Blox::info('templates','url').'/popup/popup.js');
+			Blox::addToHead(Blox::info('templates','url').'/form/form.css');
+			Blox::addToFoot(Blox::info('cms','url').'/assets/jquery.form.min.js');
+			Blox::addToHead(Blox::info('cms','url').'/assets/blox.loader.css');
+			Blox::addToFoot(Blox::info('cms','url').'/assets/blox.loader.js');
+
+0.0.0	+popupform, volta16 

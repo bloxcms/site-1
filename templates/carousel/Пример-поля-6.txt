@@ -1,0 +1,7 @@
+<div class="tr" style="width:100%">
+	<div class="td text-center" style="vertical-align:middle">
+		<h3><strong>Mercedes по цене КАМАЗа. Всего за 3 990 000 р.</strong><br />
+		Машина в наличии! Большая распродажа автомобилей КАМАЗ 5490!
+		</h3>
+	</div>
+</div>

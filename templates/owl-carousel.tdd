@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * @todo Учесть 'page' != Blox::getScriptName() чтобы лишний раз не вычислять
+ * @todo Ширину рассчиать через numOfThumbs
+ */
+$xdat = Dat::get($blockInfo, [], 'x');
+#
+$gap = $xdat[9] ?: 10;
+$stageWidth = $xdat[10] ?: 1140;
+$numOfThumbs = $xdat[4] ?: 5;
+$defaultThumbwidth  = $defaultThumbheight = ceil(($stageWidth + $gap)/$numOfThumbs - $gap);
+$thumbwidth  = $xdat[2] ?: $defaultThumbwidth;
+$thumbheight = $xdat[3] ?: $defaultThumbheight;
+
+if ($xdat[1]) {
+    $mode = ($xdat[1]== 'вписать') ? 'fit' : 'crop';
+    $thumb = 'thumbnail('.$mode.','.$thumbwidth.','.$thumbheight.','.['вверх'=>'top','вниз'=>'bottom'][$xdat[5]].')';
+} else {
+    $thumb = 'maxWidth('.$thumbwidth.') maxHeight('.$thumbHeight.') ';
+}
+
+    
+    
+$titles = [
+    4 => 'Большое фото',
+	1 => 'Фото для слайда',
+    2 => 'Текст под фото',
+    3 => 'URL (ссылка)',
+    5 => 'Закодированный URL псевдостраницы',
+    6 => 'Скрыть запись',
+];
+
+$types = [
+    4 => 'file maxWidth(1600) maxHeight(1200) quality(80) allowedFormats(gif,jpg,jpeg,png,svg) destination(datafiles/owl-carousel)',
+    1 => 'file '.$thumb.' quality(80) allowedFormats(gif,jpg,jpeg,png,svg) destination(datafiles/owl-carousel) sourceField(4)',
+	2 => 'text',
+	3 => 'varchar(332)',
+    5 => 'varchar(333)',
+    6 => 'tinyint(1) unsigned not null default 0',
+];
+
+$notes = [
+    2 => ('переходить по ссылке' == $xdat[7]) ? 'Если в поле 3 указан ссылка, то ссылки в самом тексте запрещены' : '',
+];
+
+$fields = [
+    'hidden' => [5],
+];
+
+$params = [
+    'multi-record' => true,
+    'hiding-field' => 6,
+    'version' => '1.0.1', # окна-севера planeta remontauto  ---oknaxxi
+];
+if ('переходить по ссылке' != $xdat[7])
+    $fields['hidden'][] = 3;
+elseif ('открывать большое фото' != $xdat[7])
+    $fields['hidden'][] = 4;
+elseif ('переходить по ссылке' == $xdat[7])
+    $fields['reconvert-url'][] = 3;
+
+
+
+if ($xdat[12]) {
+    Tdd::bind(
+        [
+            'block-id'=>$blockInfo['id'], 
+            'field'=>5, 
+            'value'=>Url::encode(Router::getPhref(Blox::getPageHref()))
+        ],
+        $keys, $defaults
+    );
+}
+##########################
+
+$xtitles = [
+    12=> 'Привязать записи к псевдостраницам',
+    1 => 'Как обработать фото для слайда:',
+    5 => 'Выровнить фото в слайде:',
+    2 => 'Ширина обработанного изображения для слайда (px)',
+    3 => 'Высота обработанного изображения для слайда (px)',
+    4 => 'Количество видимых слайдов в блоке',
+    10 =>'Ширина блока (px)',
+    7 => 'При клике по слайду...',
+    8 => 'Выровнить по центру',
+    9 => 'Зазор между слайдами (px)',
+    6 => 'Общий заголовок',
+    11=> 'Слайды отображать в натуральную величину (как есть, неадаптивные)',
+];
+
+$xtypes = [
+    1 => "enum('','вписать','обрезать') default 'обрезать'",
+    2 => 'smallint(4) unsigned',
+    3 => 'smallint(4) unsigned',
+    4 => 'tinyint(2) unsigned', 
+    5 => "enum('','вверх','вниз') default 'вниз'",
+    6 => 'text',
+    7 => "enum('переходить по ссылке','открывать большое фото') default 'переходить по ссылке'", # 'открывать большое фото' не ставить по умолчанию - чтобы не запрашивал fancybox, при назначении может произойти ошибка js , если fancybox подключается внизу
+    8 => 'tinyint(1) unsigned not null default 0',
+    9 => 'smallint(4) unsigned',
+    10=> 'smallint(4) unsigned',
+    11=> 'tinyint(1) unsigned not null default 0',
+    12=> 'tinyint(1) unsigned not null default 0',
+
+];
+
+$xnotes = [
+    2 => 'Имеется в виду не видимый размер, а натуральный, в котором хранится файл',
+    4 => 'Нежелательно менять количество слайдов после закачки фотографий, так как разрешение фотографий настроено под их количество',
+    6 => 'Текст над блоком',
+    8 => 'Когда карусель полностью не заполнена',
+    10=> 'самая широкая',
+    11=> 'Используется обычно, когда все изображения имеют одинаковую высоту, но разную ширину',
+    12=> 'Внимание! Если позже вы отмените привязку к псевдостраницам, то будут отображены сразу все записи.',
+];
+
+$xdefaults = [
+    2 => $thumbwidth,
+    3 => $thumbHeight,
+    4 => $numOfThumbs,
+    6 => '<div class="headline text-center"><h2>Фото</h2></div>',
+    9 => $gap,
+    10=> $stageWidth,
+];
+
+if ('вписать' != $xdat[1])
+    $xfields['hidden'][] = 5;
+

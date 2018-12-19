@@ -1,0 +1,28 @@
+
+/* Зазоры между окошками */
+    section figure {max-width:117px!important}    
+    section figure:first-child {width:122px!important}    
+    section .timeTo div {margin-left:2px}
+
+/* Поле слева от цифры*/
+    section figure > div > ul {left:11px!important}     
+    
+/* Стиль цифры и фона */
+    section .timeTo div {
+        color:#0f0!important;
+        background: linear-gradient(#0c0, #080)!important;
+        border-radius:5px;
+        border-color:rgba(0,0,0,0.5) rgba(255,255,255,0.5) rgba(255,255,255,0.5) rgba(0,0,0,0.5)!important;
+        text-shadow:-1px -1px 2px rgba(0,0,0,0.5);
+        box-shadow: inset 2px 3px 6px rgba(0,0,0,0.5);
+    }
+   
+/* Разделитель времени*/
+    section span {color:#080; text-shadow:-1px -1px 1px rgba(0,0,0,0.5);}
+
+/* Пописи к окошкам */
+    section figcaption {color:#0c0!important; text-shadow:-1px -1px 2px rgba(0,0,0,0.5);}
+
+/* Первыая группа цифр (дни)*/
+    section .timeTo figure:first-child div {color:#fff!important}
+    section figure:first-child figcaption {color:#ddd!important}    /* Подпись*/

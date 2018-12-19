@@ -1,0 +1,9 @@
+<?php
+if ($_POST['dat'][4]) {
+    # Извлечение чистой ссылки, если вставлен <iframe>
+    if (preg_match('/src="(.*?)"/m', $_POST['dat'][4], $matches))
+        $_POST['dat'][4] = $matches[1];
+    # Прямая ссылка в youtube немного отличается от той, которая нужна в iframe
+    if (false !== mb_strpos($_POST['dat'][4], 'youtube'))
+        $_POST['dat'][4] = str_replace('watch?v=', 'embed/', $_POST['dat'][4]);
+}

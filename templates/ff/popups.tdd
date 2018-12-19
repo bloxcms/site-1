@@ -1,0 +1,37 @@
+<?php
+
+//qq('ff/popups.tdd----------------');
+
+$titles = [
+    1 => 'Заголовок всплывающего окна',
+    2 => 'Блок в контентной области окна',
+    3 => 'Ширина окна', # Доступные значения: lg, sm, число (не реализовано)
+    4 => 'CSS свойства фона .modal-content',
+];
+
+$types = [
+    1 => 'varchar(255)',
+    2 => 'block(form)',
+    3 => "enum('','sm','lg') default ''",
+    4 => 'text',
+];
+
+$defaults = [
+    4 => 'background:#eee; border:none',
+];
+
+$mstyles = [
+    1 => 'width:400px',
+];
+
+$fields = [
+	'no-text-editor'=> [4],
+];
+
+$params = [
+    'version' => '4.0.1',
+    'multi-record' => true,
+	'description' => 'Обертка для всплывающих окон ff/popups.',
+    'no-edit-buttons' => true,
+    'single' => ['no-adjacents' => true],
+];
