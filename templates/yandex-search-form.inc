@@ -14,7 +14,7 @@ $searchid = 2335254;
     
 $searchPageId = Blox::getBlockPageId(Blox::getInstancesOfTpl('yandex-search-result')[0]); 
 if ($page == $searchPageId) { 
-    $searchValue = $_GET['text'];
+    $searchValue = urldecode($_GET['text']);
     $searchStyle = ' style="background:#faffbd"';
 }
 ?>

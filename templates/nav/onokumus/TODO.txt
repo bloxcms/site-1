@@ -1,7 +1,0 @@
-
-
-# Link
-Make parent <li> a link, navigate and expand children upon clicking https://github.com/onokumus/metisMenu/issues/39
-	Use preventDefault: false
-
-MetisMenu Hash https://gist.github.com/onokumus/224181ad4627b709cdc0
